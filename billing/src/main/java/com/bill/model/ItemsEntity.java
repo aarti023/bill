@@ -82,5 +82,8 @@ public class ItemsEntity {
 	@Column(name = "igst", columnDefinition = "varchar(256)")
 	private double igst;
 	
+	@Column(name = "sgst", columnDefinition = "varchar(256)")
+	private double sgst;
+	
 	
 }
