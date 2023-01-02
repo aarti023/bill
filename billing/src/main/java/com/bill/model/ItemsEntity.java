@@ -56,7 +56,7 @@ public class ItemsEntity {
 	private double quantity;
 	
 	@Column(name = "price", columnDefinition = "varchar(256)")
-	private double price;
+	private double rate;
 	
 	@Column(name = "amount", columnDefinition = "varchar(256)")
 	private double amount;
@@ -75,6 +75,12 @@ public class ItemsEntity {
 	
 	@Column(name = "redeemed", columnDefinition = "varchar(256)")
 	private double redeemed;
+	
+	@Column(name = "cgst", columnDefinition = "varchar(256)")
+	private double cgst;
+
+	@Column(name = "igst", columnDefinition = "varchar(256)")
+	private double igst;
 	
 	
 }
