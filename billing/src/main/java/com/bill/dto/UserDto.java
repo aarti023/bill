@@ -51,7 +51,7 @@ public class UserDto {
 
 	private String paymentMethod;
 
-	private String payDirectCardDetails;
+	private String payDirectCard;
 
 	private String expensesCategory;
 
