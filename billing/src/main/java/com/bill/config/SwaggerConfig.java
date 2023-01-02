@@ -17,7 +17,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.groupName("All Controller")
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.task"))
+				.apis(RequestHandlerSelectors.basePackage("com.bill"))
 				.paths(PathSelectors.any())
 				.build();
 	}
