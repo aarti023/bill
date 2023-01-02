@@ -44,7 +44,7 @@ public class ItemsEntity {
 	private String itemName;
 	
 	@Column(name = "hsn_sac_code", columnDefinition = "varchar(256)")
-	private String hSNCode;
+	private String hsnCode;
 	
 	@Column(name = "category", columnDefinition = "varchar(256)")
 	private String category;
@@ -62,10 +62,10 @@ public class ItemsEntity {
 	private double amount;
 	
 	@Column(name = "gst_slab", columnDefinition = "varchar(256)")
-	private String gSTSlab;
+	private double gstSlab;
 	
 	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
-	private double gSTAmount;
+	private double gstAmount;
 	
 	@Column(name = "siscount", columnDefinition = "varchar(256)")
 	private double discount;

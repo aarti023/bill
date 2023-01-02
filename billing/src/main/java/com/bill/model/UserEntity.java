@@ -74,7 +74,7 @@ public class UserEntity {
 	private double totalAmount;
 
 	@Column(name = "GST_applicable", columnDefinition = "varchar(256)")
-	private double gSTApplicable;
+	private double gstApplicable;
 
 	@Column(name = "TDS_Type", columnDefinition = "varchar(256)")
 	private double tdsTpye;

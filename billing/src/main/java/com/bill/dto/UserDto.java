@@ -39,7 +39,7 @@ public class UserDto {
 
 	private double totalAmount;
 
-	private double gSTApplicable;
+	private double gstApplicable;
 
 	private double tdsTpye;
 

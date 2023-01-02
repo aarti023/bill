@@ -19,26 +19,27 @@ public class ItemDto {
 	
 	private String itemName;
 	
-	private String hSNCode;
+	private String hsnCode;
 	
 	private String category;
 	
-	private double quantity;
-	
 	private String unit;
+	
+	private double quantity;
 	
 	private double price;
 	
 	private double amount;
 	
-	private String gSTSlab;
+	private double gstSlab;
 	
-	private double gSTAmount;
-	
+	private double gstAmount;
+
 	private double discount;
+	
+	private double amountPaid;
 	
 	private double redeemed;
 	
-	private double amountPaid;
 	
 }
