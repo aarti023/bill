@@ -39,9 +39,9 @@ public class UserDto {
 
 	private double totalAmount;
 
-	private double gstApplicable;
+	private String gstApplicable;
 
-	private double tdsTpye;
+	private String tdsTpye;
 
 	private double tdsAmount;
 
