@@ -1,7 +1,5 @@
 package com.bill.dto;
 
-import javax.persistence.Column;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,15 +35,15 @@ public class UserDto {
 
 	private String expensesType;
 
-	private String preTaxAmount;
+	private double preTaxAmount;
 
-	private String totalAmount;
+	private double totalAmount;
 
-	private String GSTApplicaiton;
+	private double gSTApplicable;
 
-	private String TDSTpye;
+	private double tdsTpye;
 
-	private String TDSAmount;
+	private double tdsAmount;
 
 	private String paymentMode;
 
@@ -66,4 +64,7 @@ public class UserDto {
 	private String invoiceAttachment;
 
 	private String paymentStatus;
+
+	private String reportingManager;
+
 }
