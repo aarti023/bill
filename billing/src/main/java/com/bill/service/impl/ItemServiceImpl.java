@@ -39,4 +39,10 @@ public class ItemServiceImpl implements ItemService {
 		return itemRepo.findAll();
 	}
 
+	@Override
+	public List<ItemsEntity> findByInvoiceNumber(String invoiceNumber) {
+		List<ItemsEntity> items = itemRepo.findByInvoiceNumber(invoiceNumber);		
+		return items;
+	}
+
 }

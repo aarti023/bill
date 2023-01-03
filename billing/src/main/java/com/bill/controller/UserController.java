@@ -41,20 +41,20 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("/get/data/{id}")
-	@ApiOperation("get detials by id")
-	public ResponseDto<UserEntity> getDetails(@PathVariable("id") Long id) {
-		try {
-			log.info("user {}", id);
-			UserEntity response = userService.getSavedDataById(id);
-			return ResponseDto.success("user details get successfully", response);
-		} catch (Exception errorMessage) {
-			log.error("Exception occurred while getting the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-		}
-	}
+//	@GetMapping("/get/data/{id}")
+//	@ApiOperation("get detials by id")
+//	public ResponseDto<UserEntity> getDetails(@PathVariable("id") Long id) {
+//		try {
+//			log.info("user {}", id);
+//			UserEntity response = userService.getSavedDataById(id);
+//			return ResponseDto.success("user details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
 
-	@GetMapping("/get/data/")
+	@GetMapping("/get/data/all")
 	@ApiOperation("get all details")
 	public ResponseDto<List<UserEntity>> getAllDetails() {
 		try {
@@ -69,10 +69,10 @@ public class UserController {
 	
 	@GetMapping("/get/data/{invoiceNumber}")
 	@ApiOperation("get detials by id")
-	public ResponseDto<UserEntity> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
+	public ResponseDto<List<UserEntity>> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
 		try {
 			log.info("user {}", invoiceNumber);
-			UserEntity response = userService.getDataByInvoiceNumber(invoiceNumber);
+			List<UserEntity> response = userService.findByInvoiceNumber(invoiceNumber);
 			return ResponseDto.success("user details get successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the data is {}", errorMessage);
