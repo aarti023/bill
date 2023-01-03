@@ -27,7 +27,7 @@ public class ItemDto {
 
 	private double amount;
 
-	private double gstAmount;
+	private double gstAmountItem;
 
 	private double discount;
 
@@ -38,11 +38,13 @@ public class ItemDto {
 	private double cgst;
 
 	private double igst;
-	
+
 	private double sgst;
-	
+
 	private double tds;
-	
+
 	private double tdsAmount;
+
+	private String invoiceId;
 
 }

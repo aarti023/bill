@@ -3,6 +3,7 @@ package com.bill.service.impl;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
 import com.bill.dto.UserDto;
+import com.bill.enums.UserType;
 import com.bill.exception.ResourceNotFoundException;
 import com.bill.model.UserEntity;
 import com.bill.repository.UserRepo;
@@ -19,16 +21,17 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepo userRepo;
-	
+
+
 	@Override
 	public UserEntity saveUser(UserDto userDto) {
+		userDto.setInvoiceId(getGenrateUserId(userDto.getUserType(), userDto.getInvoiceId()));
 		UserEntity user = new UserEntity();
 		BeanUtils.copyProperties(userDto, user);
-
 		userRepo.save(user);
 		return user;
 	}
@@ -62,6 +65,25 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	@Override
+	public String getGenrateUserId(UserType userType, String id) {
 
+		if (Objects.nonNull(id)) {
+			return id;
+		}
+
+		Random random1 = new Random(System.nanoTime() % 10000000);
+		switch (userType) {
+
+		case ADMIN:
+			id = "P" + String.format("%09d", random1.nextInt(10000000));
+			break;
+
+		default:
+			id = null;
+			break;
+		}
+		return id;
+	}
 
 }

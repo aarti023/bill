@@ -9,8 +9,44 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class MergeAllTableDto {
+	
+	private String dateOfInvoice;
 
+	private String itemCode;
+
+	private String itemName;
+
+	private String category;
+
+	private String unit;
+
+	private double quantity;
+
+	private double rate;
+
+	private double amount;
+
+	private double gstAmountItem;
+
+	private double discount;
+
+	private double amountPaid;
+
+	private double redeemed;
+
+	private double cgst;
+
+	private double igst;
+
+	private double sgst;
+
+	private double tds;
+
+	private double tdsAmount;
+
+	private String invoiceId;
+	
 	private String employeeCode;
 
 	private String employeeName;
@@ -60,10 +96,7 @@ public class UserDto {
 	private String serviceCategory;
 
 	private String reportingManager;
-
-	private String invoiceId;
 	
 	private UserType userType;
-	
-	private String paymentCycle;
+
 }

@@ -28,6 +28,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
 	@PostMapping("/save")
 	@ApiOperation("save user details")
 	public ResponseDto<UserEntity> saveDetail( @RequestBody UserDto userDto) {
@@ -40,19 +41,6 @@ public class UserController {
 			return ResponseDto.failure("Exception occurred while saving the data " + errorMessage);
 		}
 	}
-
-//	@GetMapping("/get/data/{id}")
-//	@ApiOperation("get detials by id")
-//	public ResponseDto<UserEntity> getDetails(@PathVariable("id") Long id) {
-//		try {
-//			log.info("user {}", id);
-//			UserEntity response = userService.getSavedDataById(id);
-//			return ResponseDto.success("user details get successfully", response);
-//		} catch (Exception errorMessage) {
-//			log.error("Exception occurred while getting the data is {}", errorMessage);
-//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-//		}
-//	}
 
 	@GetMapping("/get/data/all")
 	@ApiOperation("get all details")
@@ -79,4 +67,5 @@ public class UserController {
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
 		}
 	}
+	
 }
