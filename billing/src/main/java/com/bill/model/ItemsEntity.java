@@ -61,9 +61,6 @@ public class ItemsEntity {
 	@Column(name = "tds_amount", columnDefinition = "varchar(256)")
 	private double tdsAmount;
 	
-	@Column(name = "tds_percentage", columnDefinition = "varchar(256)")
-	private double tds;
-	
 	@Column(name = "discount", columnDefinition = "varchar(256)")
 	private double discount;
 	
@@ -81,6 +78,9 @@ public class ItemsEntity {
 	
 	@Column(name = "sgst_percentage", columnDefinition = "varchar(256)")
 	private double sgst;
+	
+	@Column(name = "tds_percentage", columnDefinition = "varchar(256)")
+	private double tds;
 	
 	
 }
