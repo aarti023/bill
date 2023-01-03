@@ -11,4 +11,6 @@ public interface UserService {
 	List<UserEntity> getAllUserDetails();
 
 	UserEntity getSavedDataById(Long id);
+	
+	UserEntity getDataByInvoiceNumber(String invoiceNumber);
 }

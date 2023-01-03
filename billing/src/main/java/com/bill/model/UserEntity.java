@@ -1,6 +1,7 @@
 package com.bill.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -114,5 +115,8 @@ public class UserEntity {
 
 	@Column(name = "reporting_manager", columnDefinition = "varchar(256)")
 	private String reportingManager;
+	
+//	@Embedded
+//	private DatabaseFile databaseFile;
 
 }

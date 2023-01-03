@@ -66,5 +66,7 @@ public class UserDto {
 	private String paymentStatus;
 
 	private String reportingManager;
+	
+//	private DatabaseFile databaseFile;
 
 }

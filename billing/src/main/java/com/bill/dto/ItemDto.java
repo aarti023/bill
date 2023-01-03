@@ -44,5 +44,7 @@ public class ItemDto {
 	private double cgst;
 
 	private double igst;
+	
+	private double sgst;
 
 }

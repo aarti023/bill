@@ -1,0 +1,52 @@
+package com.bill.model;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+@Getter
+@Setter
+@ToString(callSuper = true)
+@SuperBuilder
+@Table(name = "file")
+@Entity(name = "file")
+public class DatabaseFile {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "invoice_number", columnDefinition = "varchar(256)")
+	private String invoiceNumber;
+
+	@Column(name = "file_name", columnDefinition = "varchar(256)")
+	private String fileName;
+
+	@Column(name = "file_type", columnDefinition = "varchar(256)")
+	private String fileType;
+
+	@Lob
+	private byte[] data;
+
+	public DatabaseFile() {
+
+	}
+
+	public DatabaseFile(String fileName, String fileType, byte[] data) {
+		this.fileName = fileName;
+		this.fileType = fileType;
+		this.data = data;
+	}
+
+	
+}

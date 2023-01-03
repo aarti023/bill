@@ -66,4 +66,17 @@ public class UserController {
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
 		}
 	}
+	
+	@GetMapping("/get/data/{invoiceNumber}")
+	@ApiOperation("get detials by id")
+	public ResponseDto<UserEntity> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
+		try {
+			log.info("user {}", invoiceNumber);
+			UserEntity response = userService.getDataByInvoiceNumber(invoiceNumber);
+			return ResponseDto.success("user details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
 }
