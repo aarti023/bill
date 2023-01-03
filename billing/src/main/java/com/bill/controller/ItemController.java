@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,19 @@ public class ItemController {
 			log.info("item {}");
 			List<ItemsEntity> response = itemService.getAllItemDetails();
 			return ResponseDto.success("All User details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
+	
+	@GetMapping("/get/data/{invoiceNumber}")
+	@ApiOperation("get detials by id")
+	public ResponseDto<List<ItemsEntity>> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
+		try {
+			log.info("user {}", invoiceNumber);
+			List<ItemsEntity> response = itemService.findByInvoiceNumber(invoiceNumber);
+			return ResponseDto.success("user details get successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the data is {}", errorMessage);
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);

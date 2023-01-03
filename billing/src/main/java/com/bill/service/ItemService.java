@@ -10,4 +10,6 @@ public interface ItemService {
 
 	List<ItemsEntity> getAllItemDetails();
 
+	List<ItemsEntity> findByInvoiceNumber(String invoiceNumber);
+
 }

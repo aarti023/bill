@@ -56,4 +56,12 @@ public class UserServiceImpl implements UserService{
 		return userRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("user", "id", id));
 	}
 
+	@Override
+	public List<UserEntity> findByInvoiceNumber(String invoiceNumber) {
+		List<UserEntity> user = userRepo.findByInvoiceNumber(invoiceNumber);
+		return user;
+	}
+
+
+
 }
