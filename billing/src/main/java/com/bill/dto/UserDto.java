@@ -39,11 +39,7 @@ public class UserDto {
 
 	private double totalAmount;
 
-	private String gstApplicable;
-
-	private String tdsTpye;
-
-	private double tdsAmount;
+	private double gstAmount;
 
 	private String paymentMode;
 
@@ -61,12 +57,6 @@ public class UserDto {
 
 	private String serviceCategory;
 
-	private String invoiceAttachment;
-
-	private String paymentStatus;
-
 	private String reportingManager;
-	
-//	private DatabaseFile databaseFile;
 
 }

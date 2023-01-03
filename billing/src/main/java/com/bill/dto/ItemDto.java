@@ -13,13 +13,9 @@ public class ItemDto {
 
 	private String dateOfInvoice;
 
-	private String source;
-
 	private String itemCode;
 
 	private String itemName;
-
-	private String hsnCode;
 
 	private String category;
 
@@ -30,8 +26,6 @@ public class ItemDto {
 	private double rate;
 
 	private double amount;
-
-	private double gstSlab;
 
 	private double gstAmount;
 
@@ -46,5 +40,9 @@ public class ItemDto {
 	private double igst;
 	
 	private double sgst;
+	
+	private double tds;
+	
+	private double tdsAmount;
 
 }

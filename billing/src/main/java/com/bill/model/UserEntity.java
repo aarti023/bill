@@ -74,14 +74,8 @@ public class UserEntity {
 	@Column(name = "total_amount", columnDefinition = "varchar(256)")
 	private double totalAmount;
 
-	@Column(name = "GST_applicable", columnDefinition = "varchar(256)")
-	private String gstApplicable;
-
-	@Column(name = "TDS_Type", columnDefinition = "varchar(256)")
-	private String tdsTpye;
-
-	@Column(name = "TDS_Amount", columnDefinition = "varchar(256)")
-	private double tdsAmount;
+	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
+	private double gstAmount;
 
 	@Column(name = "payment_Mode", columnDefinition = "varchar(256)")
 	private String paymentMode;
@@ -107,16 +101,8 @@ public class UserEntity {
 	@Column(name = "service_category", columnDefinition = "varchar(256)")
 	private String serviceCategory;
 
-	@Column(name = "invoice_attachment", columnDefinition = "varchar(256)")
-	private String invoiceAttachment;
-
-	@Column(name = "payment_status", columnDefinition = "varchar(256)")
-	private String paymentStatus;
-
 	@Column(name = "reporting_manager", columnDefinition = "varchar(256)")
 	private String reportingManager;
 	
-//	@Embedded
-//	private DatabaseFile databaseFile;
 
 }

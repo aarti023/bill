@@ -34,17 +34,11 @@ public class ItemsEntity {
 	@Column(name = "date_of_Invoice", columnDefinition = "varchar(256)")
 	private String dateOfInvoice;
 		
-	@Column(name = "source", columnDefinition = "varchar(256)")
-	private String source;
-	
 	@Column(name = "item_Code", columnDefinition = "varchar(256)")
 	private String itemCode;
 	
 	@Column(name = "item_name", columnDefinition = "varchar(256)")
 	private String itemName;
-	
-	@Column(name = "hsn_sac_code", columnDefinition = "varchar(256)")
-	private String hsnCode;
 	
 	@Column(name = "category", columnDefinition = "varchar(256)")
 	private String category;
@@ -55,19 +49,19 @@ public class ItemsEntity {
 	@Column(name = "quantity", columnDefinition = "varchar(256)")
 	private double quantity;
 	
-	@Column(name = "price", columnDefinition = "varchar(256)")
+	@Column(name = "rate", columnDefinition = "varchar(256)")
 	private double rate;
 	
 	@Column(name = "amount", columnDefinition = "varchar(256)")
 	private double amount;
 	
-	@Column(name = "gst_slab", columnDefinition = "varchar(256)")
-	private double gstSlab;
-	
 	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
 	private double gstAmount;
 	
-	@Column(name = "siscount", columnDefinition = "varchar(256)")
+	@Column(name = "tds_amount", columnDefinition = "varchar(256)")
+	private double tdsAmount;
+	
+	@Column(name = "discount", columnDefinition = "varchar(256)")
 	private double discount;
 	
 	@Column(name = "amount_paid", columnDefinition = "varchar(256)")
@@ -76,14 +70,17 @@ public class ItemsEntity {
 	@Column(name = "redeemed", columnDefinition = "varchar(256)")
 	private double redeemed;
 	
-	@Column(name = "cgst", columnDefinition = "varchar(256)")
+	@Column(name = "cgst_percentage", columnDefinition = "varchar(256)")
 	private double cgst;
 
-	@Column(name = "igst", columnDefinition = "varchar(256)")
+	@Column(name = "igst_percentage", columnDefinition = "varchar(256)")
 	private double igst;
 	
-	@Column(name = "sgst", columnDefinition = "varchar(256)")
+	@Column(name = "sgst_percentage", columnDefinition = "varchar(256)")
 	private double sgst;
+	
+	@Column(name = "tds_percentage", columnDefinition = "varchar(256)")
+	private double tds;
 	
 	
 }
