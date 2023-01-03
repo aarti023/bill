@@ -98,12 +98,12 @@ public class FileController {
 	
 //	====================test===============================
 	
-	@GetMapping("/")
-	public byte[] getFile(Model model) {
-		List<DatabaseFile> docs = fileStorageService.getFiles();
-		model.addAttribute("docs" + docs);
-		return docs.get(0).getData();
-	}
+//	@GetMapping("/")
+//	public byte[] getFile(Model model) {
+//		List<DatabaseFile> docs = fileStorageService.getFiles();
+//		model.addAttribute("docs" + docs);
+//		return docs.get(0).getData();
+//	}
 	
 //	@PostMapping("uploadFile")
 //	public String uploadFiles(@RequestParam ("file") MultipartFile[] files) {
@@ -113,15 +113,15 @@ public class FileController {
 //		return "redirect";
 //	}
 	
-	@GetMapping("/downloadFile/{fielId}")
-	public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable Long fileId){
-		DatabaseFile doc = fileStorageService.getFile(fileId).get();
-		return ResponseEntity.ok()
-				.contentType(MediaType.parseMediaType(doc.getFileType()))
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment:filename=\"" + doc.getFileName()+ "\"")
-				.body(new ByteArrayResource(doc.getData()));
-		
-	}
+//	@GetMapping("/downloadFile/{fielId}")
+//	public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable Long fileId){
+//		DatabaseFile doc = fileStorageService.getFile(fileId).get();
+//		return ResponseEntity.ok()
+//				.contentType(MediaType.parseMediaType(doc.getFileType()))
+//				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment:filename=\"" + doc.getFileName()+ "\"")
+//				.body(new ByteArrayResource(doc.getData()));
+//		
+//	}
 	
 	
 	
