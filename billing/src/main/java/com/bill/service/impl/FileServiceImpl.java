@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bill.exception.FileStorageException;
-import com.bill.model.File;
+import com.bill.model.FileEntity;
 import com.bill.repository.FileRepository;
 import com.bill.service.FileService;
 
@@ -29,7 +29,7 @@ public class FileServiceImpl implements FileService {
 	private FileRepository dbFileRepository;
 
 	@Override
-	public File save(MultipartFile file, String invoice) {
+	public FileEntity save(MultipartFile file, String invoice) {
 		String fileName = file.getOriginalFilename();
 		String fileExtension = file.getContentType();
 		byte[] data = null;
@@ -39,13 +39,13 @@ public class FileServiceImpl implements FileService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		File fileToSave = new File(fileName, fileExtension, data, invoice);
+		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoice);
 		return dbFileRepository.save(fileToSave);
 	}
 
 	@Override
-	public Optional<File> getFile(String invoice) {
-		File file = dbFileRepository.findByInvoiceNumber(invoice);
+	public Optional<FileEntity> getFile(String invoice) {
+		FileEntity file = dbFileRepository.findByInvoiceNumber(invoice);
 		if (Objects.nonNull(file)) {
 			if (file.getFileType().equalsIgnoreCase("image/png")) {
 				ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
@@ -73,11 +73,11 @@ public class FileServiceImpl implements FileService {
 	}
 
 	@Override
-	public List<File> getAllFile() {
-		List<File> files = dbFileRepository.findAll();
+	public List<FileEntity> getAllFile() {
+		List<FileEntity> files = dbFileRepository.findAll();
 		if (Objects.nonNull(files)) {
 			int count = 1;
-			for (File file : files) {
+			for (FileEntity file : files) {
 				if(file.getFileType().equalsIgnoreCase("image/png")) {
 				      ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
 				      BufferedImage bImage2 = null;

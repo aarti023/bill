@@ -5,13 +5,13 @@ import java.util.Optional;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bill.model.File;
+import com.bill.model.FileEntity;
 
 public interface FileService {
 	
-	public File save(MultipartFile file, String invoiceNumber) ;
+	public FileEntity save(MultipartFile file, String invoiceNumber) ;
 	
-	public Optional<File> getFile(String  invoiceNumber);
+	public Optional<FileEntity> getFile(String  invoiceNumber);
 	
-	public List<File> getAllFile();
+	public List<FileEntity> getAllFile();
 }

@@ -100,5 +100,7 @@ public class MergeAllTableDto {
 	private UserType userType;
 	
 	private String paymentCycle;
+	
+	private String fileName; 
 
 }
