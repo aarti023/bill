@@ -17,7 +17,7 @@ public class ItemDto {
 
 	private String itemName;
 
-	private String category;
+	private String categoryItem;
 
 	private String unit;
 

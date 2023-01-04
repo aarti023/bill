@@ -17,7 +17,7 @@ public class MergeAllTableDto {
 
 	private String itemName;
 
-	private String category;
+	private String categoryItem;
 
 	private String unit;
 
@@ -65,7 +65,7 @@ public class MergeAllTableDto {
 
 	private String department;
 
-	private String catagory;
+	private String category;
 
 	private String subCatagory1;
 
@@ -98,5 +98,7 @@ public class MergeAllTableDto {
 	private String reportingManager;
 	
 	private UserType userType;
+	
+	private String paymentCycle;
 
 }

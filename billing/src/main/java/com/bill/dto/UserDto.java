@@ -29,7 +29,7 @@ public class UserDto {
 
 	private String department;
 
-	private String catagory;
+	private String category;
 
 	private String subCatagory1;
 

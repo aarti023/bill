@@ -59,8 +59,8 @@ public class UserEntity {
 	@Column(name = "department", columnDefinition = "varchar(256)")
 	private String department;
 
-	@Column(name = "catagory", columnDefinition = "varchar(256)")
-	private String catagory;
+	@Column(name = "category", columnDefinition = "varchar(256)")
+	private String category;
 
 	@Column(name = "sub_catagory_1", columnDefinition = "varchar(256)")
 	private String subCatagory1;

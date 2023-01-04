@@ -12,4 +12,6 @@ public interface FileService {
 	public File save(MultipartFile file, String invoiceNumber) ;
 	
 	public Optional<File> getFile(String  invoiceNumber);
+	
+	public List<File> getAllFile();
 }

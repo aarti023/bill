@@ -44,8 +44,8 @@ public class ItemsEntity {
 	@Column(name = "item_name", columnDefinition = "varchar(256)")
 	private String itemName;
 	
-	@Column(name = "category", columnDefinition = "varchar(256)")
-	private String category;
+	@Column(name = "category_item", columnDefinition = "varchar(256)")
+	private String categoryItem;
 	
 	@Column(name = "unit", columnDefinition = "varchar(256)")
 	private String unit;

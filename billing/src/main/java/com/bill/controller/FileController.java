@@ -35,4 +35,10 @@ public class FileController {
 		fileStorageService.getFile(invoiceNumber);
 		return null;
 	}
+	
+	@GetMapping("get/all/files")
+	public MultipartFile getFiles() {
+		fileStorageService.getAllFile();
+		return null;
+	}
 }
