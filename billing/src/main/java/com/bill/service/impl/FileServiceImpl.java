@@ -4,20 +4,16 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bill.exception.FileStorageException;
 import com.bill.model.FileEntity;
 import com.bill.repository.FileRepository;
 import com.bill.service.FileService;
@@ -29,7 +25,7 @@ public class FileServiceImpl implements FileService {
 	private FileRepository dbFileRepository;
 
 	@Override
-	public FileEntity save(MultipartFile file, String invoiceId) {
+	public FileEntity save(MultipartFile file, String invoice) {
 		String fileName = file.getOriginalFilename();
 		String fileExtension = file.getContentType();
 		byte[] data = null;
@@ -39,7 +35,7 @@ public class FileServiceImpl implements FileService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoiceId);
+		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoice);
 		return dbFileRepository.save(fileToSave);
 	}
 
@@ -78,25 +74,25 @@ public class FileServiceImpl implements FileService {
 		if (Objects.nonNull(files)) {
 			int count = 1;
 			for (FileEntity file : files) {
-				if(file.getFileType().equalsIgnoreCase("image/png")) {
-				      ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
-				      BufferedImage bImage2 = null;
+				if (file.getFileType().equalsIgnoreCase("image/png")) {
+					ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
+					BufferedImage bImage2 = null;
 					try {
 						bImage2 = ImageIO.read(bis);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				      try {
-				    	  java.io.File files1 = new java.io.File("C:\\Users\\aarti\\OneDrive\\Desktop\\img\\output"+count+".png");
-				    	  count++;
-						ImageIO.write(bImage2, "jpg",files1);
+					try {
+						java.io.File files1 = new java.io.File(
+								"C:\\Users\\aarti\\OneDrive\\Desktop\\img\\output" + count + ".png");
+						count++;
+						ImageIO.write(bImage2, "jpg", files1);
 						try (FileOutputStream fosFor = new FileOutputStream(files1)) {
-				            fosFor.write(file.getData());
-				        }
+							fosFor.write(file.getData());
+						}
 
-
-				      } catch (IOException e) {
+					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}

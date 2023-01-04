@@ -22,14 +22,15 @@ public class FileController {
 	@Autowired
 	private FileService fileStorageService;
 
+
 //	@PostMapping("/upload/file")
 //	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,
+//			@RequestParam(name = "invoiceId") String invoiceId,
 //			@RequestParam(name = "invoiceNumber") String invoiceNumber) {
 //
-//		fileStorageService.save(multiPartFile, invoiceNumber);
+//		fileStorageService.save(multiPartFile, invoiceId,invoiceNumber);
 //		return "File stored successfully";
 //	}
-	
 	
 	@PostMapping("/upload/file")
 	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,

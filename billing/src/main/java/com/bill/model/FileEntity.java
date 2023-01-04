@@ -49,8 +49,10 @@ public class FileEntity {
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.data = data;
-		this.invoiceNumber = invoice;
-	}
+		this.invoiceId = invoice;
+}
+	
+
 
 	
 }
