@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.ResponseDto;
 import com.bill.dto.UserDto;
 import com.bill.model.UserEntity;
@@ -67,5 +68,18 @@ public class UserController {
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
 		}
 	}
+
 	
+	@GetMapping("/gets/merge")
+	@ApiOperation("get all details of merge data")
+	public ResponseDto<List<MergeAllTableDto>> getAll() {
+		try {
+			log.info("user {}");
+			List<MergeAllTableDto> response = userService.getAll();
+			return ResponseDto.success("All User details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
 }

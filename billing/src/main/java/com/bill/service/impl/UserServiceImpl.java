@@ -1,19 +1,24 @@
 package com.bill.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
+import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
 import com.bill.enums.UserType;
 import com.bill.exception.ResourceNotFoundException;
+import com.bill.model.ItemsEntity;
 import com.bill.model.UserEntity;
+import com.bill.repository.ItemRepo;
 import com.bill.repository.UserRepo;
 import com.bill.service.UserService;
 
@@ -25,6 +30,12 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private ItemRepo itemRepo;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 
 
 	@Override
@@ -85,5 +96,32 @@ public class UserServiceImpl implements UserService {
 		}
 		return id;
 	}
+	
+	
 
+	@Override
+	public List<MergeAllTableDto> getAll() {
+		List<ItemsEntity> items = itemRepo.findAll();
+		List<UserEntity> users = userRepo.findAll();
+		
+		List<MergeAllTableDto> merge = new ArrayList<>();
+		for(ItemsEntity item: items) {
+			for(UserEntity user: users) {
+				MergeAllTableDto dto = new MergeAllTableDto();
+				if(item.getInvoiceNumber().equals(user.getInvoiceNumber())) {
+					dto.setBrand(user.getBrand());
+					dto.setSubBrand(user.getSubBrand());
+					dto.setInvoiceNumber(user.getInvoiceNumber());
+					dto.setItemCode(item.getItemCode());
+				}
+				merge.add(dto);
+			}
+		}
+		
+		return merge;
+		
+	}
+	
+	
+	
 }
