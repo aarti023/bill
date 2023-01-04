@@ -113,5 +113,8 @@ public class UserEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
+	
+	@Column(name = "payment_cycle", columnDefinition = "varchar(10)")
+	private String paymentCycle;
 
 }
