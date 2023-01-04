@@ -111,7 +111,7 @@ public class UserServiceImpl implements UserService {
 			MergeAllTableDto dto = new MergeAllTableDto();
 			for (UserEntity user : users) {
 				for (FileEntity file : files) {
-					if (item.getInvoiceNumber().equals(user.getInvoiceNumber())) {
+					if (item.getInvoiceNumber().equals(user.getInvoiceNumber()) && file.getInvoiceNumber().equals(user.getInvoiceNumber())) {
 
 						dto.setEmployeeCode(user.getEmployeeCode());
 						dto.setEmployeeName(user.getEmployeeName());
