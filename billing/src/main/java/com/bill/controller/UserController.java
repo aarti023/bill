@@ -70,7 +70,7 @@ public class UserController {
 	}
 
 	
-	@GetMapping("/gets/merge")
+	@GetMapping("/gets/")
 	@ApiOperation("get all details of merge data")
 	public ResponseDto<List<MergeAllTableDto>> getAll() {
 		try {

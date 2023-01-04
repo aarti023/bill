@@ -112,7 +112,8 @@ public class UserServiceImpl implements UserService {
 			for (UserEntity user : users) {
 				for (FileEntity file : files) {
 					if (item.getInvoiceNumber().equals(user.getInvoiceNumber()) || file.getInvoiceId().equals(user.getInvoiceId())) {
-
+						
+						dto.setId(user.getId());
 						dto.setEmployeeCode(user.getEmployeeCode());
 						dto.setEmployeeName(user.getEmployeeName());
 						dto.setInvoiceNumber(user.getInvoiceNumber());

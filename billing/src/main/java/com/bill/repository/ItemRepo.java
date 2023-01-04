@@ -9,4 +9,6 @@ import com.bill.model.ItemsEntity;
 public interface ItemRepo extends JpaRepository<ItemsEntity, Long> {
 	
 	public List<ItemsEntity> findByInvoiceNumber(String invoiceNumber);
+
+	public List<ItemsEntity> findByInvoiceId(String invoiceId);
 }
