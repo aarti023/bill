@@ -21,6 +21,9 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private ItemRepo itemRepo;
+	
+	@Autowired
+	private UserServiceImpl userServiceImpl;
 
 	@Override
 	public ItemsEntity saveItem(ItemDto itemDto) {

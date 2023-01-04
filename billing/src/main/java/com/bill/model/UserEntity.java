@@ -1,12 +1,15 @@
 package com.bill.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -56,8 +59,8 @@ public class UserEntity {
 	@Column(name = "department", columnDefinition = "varchar(256)")
 	private String department;
 
-	@Column(name = "catagory", columnDefinition = "varchar(256)")
-	private String catagory;
+	@Column(name = "category", columnDefinition = "varchar(256)")
+	private String category;
 
 	@Column(name = "sub_catagory_1", columnDefinition = "varchar(256)")
 	private String subCatagory1;
@@ -104,5 +107,14 @@ public class UserEntity {
 	@Column(name = "reporting_manager", columnDefinition = "varchar(256)")
 	private String reportingManager;
 	
+	@Column(name = "invoice_id", columnDefinition = "varchar(10)")
+	private String invoiceId;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "user_type", columnDefinition = "varchar(50)")
+	private UserType userType;
+	
+	@Column(name = "payment_cycle", columnDefinition = "varchar(10)")
+	private String paymentCycle;
 
 }

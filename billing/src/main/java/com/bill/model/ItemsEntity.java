@@ -2,10 +2,14 @@ package com.bill.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,8 +44,8 @@ public class ItemsEntity {
 	@Column(name = "item_name", columnDefinition = "varchar(256)")
 	private String itemName;
 	
-	@Column(name = "category", columnDefinition = "varchar(256)")
-	private String category;
+	@Column(name = "category_item", columnDefinition = "varchar(256)")
+	private String categoryItem;
 	
 	@Column(name = "unit", columnDefinition = "varchar(256)")
 	private String unit;
@@ -55,8 +59,8 @@ public class ItemsEntity {
 	@Column(name = "amount", columnDefinition = "varchar(256)")
 	private double amount;
 	
-	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
-	private double gstAmount;
+	@Column(name = "gst_amount_item", columnDefinition = "varchar(256)")
+	private double gstAmountItem;
 	
 	@Column(name = "tds_amount", columnDefinition = "varchar(256)")
 	private double tdsAmount;
@@ -81,6 +85,9 @@ public class ItemsEntity {
 	
 	@Column(name = "tds_percentage", columnDefinition = "varchar(256)")
 	private double tds;
+	
+	@Column(name = "invoice_id", columnDefinition = "varchar(10)")
+	private String invoiceId;
 	
 	
 }

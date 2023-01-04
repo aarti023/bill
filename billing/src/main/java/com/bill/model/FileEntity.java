@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "file")
 @Entity(name = "file")
-public class DatabaseFile {
+public class FileEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,14 +38,15 @@ public class DatabaseFile {
 	@Lob
 	private byte[] data;
 
-	public DatabaseFile() {
+	public FileEntity() {
 
 	}
 
-	public DatabaseFile(String fileName, String fileType, byte[] data) {
+	public FileEntity(String fileName, String fileType, byte[] data, String invoice) {
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.data = data;
+		this.invoiceNumber = invoice;
 	}
 
 	

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DatabaseFileDto {
+public class FileDto {
 	
 	private String invoiceNumber;
 
