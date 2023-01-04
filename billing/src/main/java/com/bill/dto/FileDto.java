@@ -13,6 +13,8 @@ public class FileDto {
 
 	private String fileName;
 	
+	private String invoiceId;
+	
 	private byte[] data;
 
 }

@@ -29,7 +29,7 @@ public class FileServiceImpl implements FileService {
 	private FileRepository dbFileRepository;
 
 	@Override
-	public FileEntity save(MultipartFile file, String invoice) {
+	public FileEntity save(MultipartFile file, String invoiceId) {
 		String fileName = file.getOriginalFilename();
 		String fileExtension = file.getContentType();
 		byte[] data = null;
@@ -39,7 +39,7 @@ public class FileServiceImpl implements FileService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoice);
+		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoiceId);
 		return dbFileRepository.save(fileToSave);
 	}
 
