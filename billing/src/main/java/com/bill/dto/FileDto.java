@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FileDto {
 	
-	private String invoiceNumber;
-
 	private String fileName;
 	
 	private String invoiceId;
