@@ -16,7 +16,7 @@ public interface UserRepo extends JpaRepository<UserEntity, Long> {
 
 	long countByUserType(UserType userType);
 
-	@Query(value="select u.employee_name, u.email from User u WHERE u.employee_code=?1", nativeQuery =true)
+	@Query(value="select u.employee_name from User u WHERE u.employee_code=?1", nativeQuery =true)
 	public String findByEmployeeCode(String employeeCode);
 
 }
