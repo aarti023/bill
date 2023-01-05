@@ -103,6 +103,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<MergeAllTableDto> getAll() {
+		System.out.println("enity");
 		List<ItemsEntity> items = itemRepo.findAll();
 		List<UserEntity> users = userRepo.findAll();
 		List<FileEntity> files = fileRepo.findAll();
@@ -110,10 +111,12 @@ public class UserServiceImpl implements UserService {
 		for (ItemsEntity item : items) {
 			MergeAllTableDto dto = new MergeAllTableDto();
 			for (UserEntity user : users) {
-				for (FileEntity file : files) {
-					if (item.getInvoiceNumber().equals(user.getInvoiceNumber()) || file.getInvoiceId().equals(user.getInvoiceId())) {
-						
-						dto.setId(user.getId());
+				System.out.println("enitysss");
+//				for (FileEntity file : files) {
+					System.out.println("enityeeee");
+					if (item.getInvoiceNumber().equals(user.getInvoiceNumber())) {
+						System.out.println("enity123");
+						dto.setId(item.getId());
 						dto.setEmployeeCode(user.getEmployeeCode());
 						dto.setEmployeeName(user.getEmployeeName());
 						dto.setInvoiceNumber(user.getInvoiceNumber());
@@ -162,12 +165,12 @@ public class UserServiceImpl implements UserService {
 						dto.setTds(item.getTds());
 						dto.setTdsAmount(item.getTdsAmount());
 
-						dto.setFileName(file.getFileName());
+//						dto.setFileName(file.getFileName());
 
 					}
 
 				}
-			}
+//			}
 
 			merge.add(dto);
 		}

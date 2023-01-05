@@ -33,7 +33,7 @@ public class FileController {
 //	}
 	
 	@PostMapping("/upload/file")
-	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,
+	public String uploadFilesInDB(@RequestParam(value = "file") MultipartFile multiPartFile,
 			@RequestParam(name = "invoiceId") String invoiceId) {
 
 		fileStorageService.save(multiPartFile, invoiceId);
@@ -41,8 +41,14 @@ public class FileController {
 	}
 	
 	@GetMapping("get/file")
-	public MultipartFile getFileByInvoice(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
-		fileStorageService.getFile(invoiceNumber);
+	public MultipartFile getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
+		fileStorageService.getFile(invoiceId);
+		return null;
+	}
+	
+	@GetMapping("get/files/number")
+	public MultipartFile getFileByInvoiceNumber(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
+		fileStorageService.getFileByInvoiceNumber(invoiceNumber);
 		return null;
 	}
 	
