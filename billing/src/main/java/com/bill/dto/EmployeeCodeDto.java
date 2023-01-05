@@ -7,14 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserUpdateDto {
+public class EmployeeCodeDto {
+
+	private String employeeName;
 	
-	private String paidAmount;
-
-	private String paymentDate;
-
-	private String paymentStatus;
-
-	private String transactionDetail;
+	private String email;
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
+import com.bill.dto.EmployeeCodeDto;
 import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
 import com.bill.dto.UserUpdateDto;
@@ -47,10 +48,14 @@ public class UserServiceImpl implements UserService {
 	
 
 	@Override
-	public String getNameAndEmailByEmployeeCode(String employeeCode) {
-//		UserEntity user = userRepo.findByEmployeeId(employeeid);
-//		return user;
-		return userRepo.findByEmployeeCode(employeeCode);
+	public EmployeeCodeDto getNameAndEmailByEmployeeCode(String employeeCode) {
+		UserEntity user = userRepo.findByEmployeeCode(employeeCode);
+		EmployeeCodeDto employeeCodeDto = new EmployeeCodeDto();
+		employeeCodeDto.setEmail(user.getEmail());
+		employeeCodeDto.setEmployeeName(user.getEmployeeName());
+		
+		return employeeCodeDto;
+
 	}
 
 	@Override
@@ -181,6 +186,17 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	
 
+	@Override
+	public UserUpdateDto updateUser(String invoiceId, UserUpdateDto userUpdateDto) {
+		UserEntity user = userRepo.findByInvoiceId(invoiceId);
+		user.setPaidAmount(userUpdateDto.getPaidAmount());
+		user.setPaymentStatus(userUpdateDto.getPaymentStatus());
+		user.setPaymentDate(userUpdateDto.getPaymentDate());
+		user.setTransactionDetail(userUpdateDto.getTransactionDetail());
+		userRepo.save(user);
+		return userUpdateDto;
+		
+	}
+	
 }
