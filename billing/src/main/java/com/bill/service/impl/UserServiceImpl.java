@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,11 @@ import org.springframework.web.server.NotAcceptableStatusException;
 
 import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
+import com.bill.dto.UserUpdateDto;
 import com.bill.enums.UserType;
 import com.bill.exception.ResourceNotFoundException;
-import com.bill.model.FileEntity;
 import com.bill.model.ItemsEntity;
 import com.bill.model.UserEntity;
-import com.bill.repository.FileRepository;
 import com.bill.repository.ItemRepo;
 import com.bill.repository.UserRepo;
 import com.bill.service.UserService;
@@ -36,19 +34,23 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private ItemRepo itemRepo;
 
-	@Autowired
-	private FileRepository fileRepo;
-
-	@Autowired
-	private ModelMapper modelMapper;
-
-	@Override
+//	@Autowired
+//	private FileRepository fileRepo;
+	
 	public UserEntity saveUser(UserDto userDto) {
 		userDto.setInvoiceId(getGenrateUserId(userDto.getUserType(), userDto.getInvoiceId()));
 		UserEntity user = new UserEntity();
 		BeanUtils.copyProperties(userDto, user);
 		userRepo.save(user);
 		return user;
+	}
+	
+
+	@Override
+	public String getNameAndEmailByEmployeeId(String employeeid) {
+//		UserEntity user = userRepo.findByEmployeeId(employeeid);
+//		return user;
+		return userRepo.findByEmployeeId(employeeid);
 	}
 
 	@Override
@@ -106,70 +108,70 @@ public class UserServiceImpl implements UserService {
 		System.out.println("enity");
 		List<ItemsEntity> items = itemRepo.findAll();
 		List<UserEntity> users = userRepo.findAll();
-		List<FileEntity> files = fileRepo.findAll();
+//		List<FileEntity> files = fileRepo.findAll();
 		List<MergeAllTableDto> merge = new ArrayList<>();
 		for (ItemsEntity item : items) {
 			MergeAllTableDto dto = new MergeAllTableDto();
 			for (UserEntity user : users) {
-				System.out.println("enitysss");
 //				for (FileEntity file : files) {
-					System.out.println("enityeeee");
-					if (item.getInvoiceNumber().equals(user.getInvoiceNumber())) {
-						System.out.println("enity123");
-						dto.setId(item.getId());
-						dto.setEmployeeCode(user.getEmployeeCode());
-						dto.setEmployeeName(user.getEmployeeName());
-						dto.setInvoiceNumber(user.getInvoiceNumber());
-						dto.setInvoiceDate(user.getInvoiceDate());
-						dto.setInvoiceDescription(user.getInvoiceDescription());
-						dto.setEmail(user.getEmail());
-						dto.setBrand(user.getBrand());
-						dto.setSubBrand(user.getSubBrand());
-						dto.setLocation(user.getLocation());
-						dto.setDepartment(user.getDepartment());
-						dto.setCategory(user.getCategory());
-						dto.setSubCatagory1(user.getSubCatagory1());
-						dto.setSubCatagory2(user.getSubCatagory2());
-						dto.setPreTaxAmount(user.getPreTaxAmount());
-						dto.setTotalAmount(user.getTotalAmount());
-						dto.setGstAmount(user.getGstAmount());
-						dto.setPaymentMethod(user.getPaymentMethod());
-						dto.setPaymentMode(user.getPaymentMode());
-						dto.setExpensesType(user.getExpensesType());
-						dto.setPayDirectCard(user.getPayDirectCard());
-						dto.setExpensesCategory(user.getExpensesCategory());
-						dto.setPartnerCode(user.getPartnerCode());
-						dto.setPartnerName(user.getPartnerName());
-						dto.setInvoiceDescription(user.getInvoiceDescription());
-						dto.setServiceCategory(user.getServiceCategory());
-						dto.setInvoiceId(user.getInvoiceId());
-						dto.setUserType(user.getUserType());
-						dto.setPaymentCycle(user.getPaymentCycle());
-						dto.setReportingManager(user.getReportingManager());
+				if (item.getInvoiceNumber().equals(user.getInvoiceNumber())) {
 
-						dto.setDateOfInvoice(item.getDateOfInvoice());
-						dto.setItemName(item.getItemName());
-						dto.setItemCode(item.getItemCode());
-						dto.setCategoryItem(item.getCategoryItem());
-						dto.setUnit(item.getUnit());
-						dto.setQuantity(item.getQuantity());
-						dto.setRate(item.getRate());
-						dto.setAmount(item.getAmount());
-						dto.setGstAmountItem(item.getGstAmountItem());
-						dto.setDiscount(item.getDiscount());
-						dto.setAmountPaid(item.getAmountPaid());
-						dto.setRedeemed(item.getRedeemed());
-						dto.setCgst(item.getCgst());
-						dto.setIgst(item.getIgst());
-						dto.setSgst(item.getSgst());
-						dto.setTds(item.getTds());
-						dto.setTdsAmount(item.getTdsAmount());
+					dto.setId(item.getId());
+					dto.setEmployeeCode(user.getEmployeeCode());
+					dto.setEmployeeName(user.getEmployeeName());
+					dto.setInvoiceNumber(user.getInvoiceNumber());
+					dto.setInvoiceDate(user.getInvoiceDate());
+					dto.setInvoiceDescription(user.getInvoiceDescription());
+					dto.setEmail(user.getEmail());
+					dto.setBrand(user.getBrand());
+					dto.setSubBrand(user.getSubBrand());
+					dto.setLocation(user.getLocation());
+					dto.setDepartment(user.getDepartment());
+					dto.setCategory(user.getCategory());
+					dto.setSubCatagory1(user.getSubCatagory1());
+					dto.setSubCatagory2(user.getSubCatagory2());
+					dto.setPreTaxAmount(user.getPreTaxAmount());
+					dto.setTotalAmount(user.getTotalAmount());
+					dto.setGstAmount(user.getGstAmount());
+					dto.setPaymentMethod(user.getPaymentMethod());
+					dto.setPaymentMode(user.getPaymentMode());
+					dto.setExpensesType(user.getExpensesType());
+					dto.setPayDirectCard(user.getPayDirectCard());
+					dto.setExpensesCategory(user.getExpensesCategory());
+					dto.setPartnerCode(user.getPartnerCode());
+					dto.setPartnerName(user.getPartnerName());
+					dto.setInvoiceDescription(user.getInvoiceDescription());
+					dto.setServiceCategory(user.getServiceCategory());
+					dto.setInvoiceId(user.getInvoiceId());
+					dto.setUserType(user.getUserType());
+					dto.setPaymentCycle(user.getPaymentCycle());
+					dto.setReportingManager(user.getReportingManager());
+					dto.setTaskId(user.getTaskId());
+					dto.setUtr(user.getUtr());
+
+					dto.setDateOfInvoice(item.getDateOfInvoice());
+					dto.setItemName(item.getItemName());
+					dto.setItemCode(item.getItemCode());
+					dto.setCategoryItem(item.getCategoryItem());
+					dto.setUnit(item.getUnit());
+					dto.setQuantity(item.getQuantity());
+					dto.setRate(item.getRate());
+					dto.setAmount(item.getAmount());
+					dto.setGstAmountItem(item.getGstAmountItem());
+					dto.setDiscount(item.getDiscount());
+					dto.setAmountPaid(item.getAmountPaid());
+					dto.setRedeemed(item.getRedeemed());
+					dto.setCgst(item.getCgst());
+					dto.setIgst(item.getIgst());
+					dto.setSgst(item.getSgst());
+					dto.setTds(item.getTds());
+					dto.setTdsAmount(item.getTdsAmount());
 
 //						dto.setFileName(file.getFileName());
 
-					}
-
 				}
+
+			}
 //			}
 
 			merge.add(dto);
@@ -178,4 +180,7 @@ public class UserServiceImpl implements UserService {
 		return merge;
 
 	}
+
+	
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
+import com.bill.dto.UserUpdateDto;
 import com.bill.enums.UserType;
 import com.bill.model.ItemsEntity;
 import com.bill.model.UserEntity;
@@ -20,4 +21,7 @@ public interface UserService {
 	String getGenrateUserId(UserType userType, String id);
 
 	List<MergeAllTableDto> getAll();
+
+	String getNameAndEmailByEmployeeId(String employeeId);
+
 }

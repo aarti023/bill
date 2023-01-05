@@ -25,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user")
-@Entity
+@Entity(name = "user")
 public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,6 +37,9 @@ public class UserEntity {
 
 	@Column(name = "employee_name", columnDefinition = "varchar(256)")
 	private String employeeName;
+	
+	@Column(name = "employee_id", columnDefinition = "varchar(256)")
+	private String employeeId;
 
 	@Column(name = "email", columnDefinition = "varchar(256)")
 	private String email;
@@ -114,7 +117,25 @@ public class UserEntity {
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
 	
-	@Column(name = "payment_cycle", columnDefinition = "varchar(10)")
+	@Column(name = "payment_cycle", columnDefinition = "varchar(256)")
 	private String paymentCycle;
+	
+	@Column(name = "task_id", columnDefinition = "varchar(50)")
+	private String taskId;
+	
+	@Column(name = "utr", columnDefinition = "varchar(50)")
+	private String utr;
+	
+	@Column(name = "paid_amount", columnDefinition = "varchar(256)")
+	private String paidAmount;
+	
+	@Column(name = "payment_date", columnDefinition = "varchar(256)")
+	private String paymentDate;
+	
+	@Column(name = "payment_status", columnDefinition = "varchar(256)")
+	private String paymentStatus;
+	
+	@Column(name = "transaction_detail", columnDefinition = "varchar(256)")
+	private String transactionDetail;
 
 }

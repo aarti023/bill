@@ -104,5 +104,9 @@ public class MergeAllTableDto {
 	private String fileName; 
 	
 	private Long id;
+	
+	private String taskId;
+
+	private String utr;
 
 }

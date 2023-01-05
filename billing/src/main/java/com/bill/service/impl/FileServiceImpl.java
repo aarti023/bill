@@ -28,6 +28,7 @@ public class FileServiceImpl implements FileService {
 	public FileEntity save(MultipartFile file, String invoice) {
 		String fileName = file.getOriginalFilename();
 		String fileExtension = file.getContentType();
+
 		byte[] data = null;
 		try {
 			data = file.getBytes();
