@@ -47,10 +47,10 @@ public class UserServiceImpl implements UserService {
 	
 
 	@Override
-	public String getNameAndEmailByEmployeeId(String employeeid) {
+	public String getNameAndEmailByEmployeeCode(String employeeCode) {
 //		UserEntity user = userRepo.findByEmployeeId(employeeid);
 //		return user;
-		return userRepo.findByEmployeeId(employeeid);
+		return userRepo.findByEmployeeCode(employeeCode);
 	}
 
 	@Override

@@ -85,12 +85,12 @@ public class UserController {
 //		}
 //	}
 	
-	@GetMapping("/get/name/email/{employeeId}")
-	@ApiOperation("get name and email by employeeId")
-	public ResponseDto getDetailByEmployee(@PathVariable("employeeId") String employeeId) {
+	@GetMapping("/get/name/email/{employeeCode}")
+	@ApiOperation("get name and email by employeeCode")
+	public ResponseDto getDetailByEmployee(@PathVariable("employeeCode") String employeeCode) {
 		try {
-			log.info("user {}", employeeId);
-			String response = userService.getNameAndEmailByEmployeeId(employeeId);
+			log.info("user {}", employeeCode);
+			String response = userService.getNameAndEmailByEmployeeCode(employeeCode);
 			return ResponseDto.success("user details get successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the data is {}", errorMessage);

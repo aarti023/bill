@@ -22,6 +22,6 @@ public interface UserService {
 
 	List<MergeAllTableDto> getAll();
 
-	String getNameAndEmailByEmployeeId(String employeeId);
+	String getNameAndEmailByEmployeeCode(String employeeCode);
 
 }

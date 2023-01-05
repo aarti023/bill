@@ -38,9 +38,6 @@ public class UserEntity {
 	@Column(name = "employee_name", columnDefinition = "varchar(256)")
 	private String employeeName;
 	
-	@Column(name = "employee_id", columnDefinition = "varchar(256)")
-	private String employeeId;
-
 	@Column(name = "email", columnDefinition = "varchar(256)")
 	private String email;
 
