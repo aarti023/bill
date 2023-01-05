@@ -21,9 +21,6 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private ItemRepo itemRepo;
-	
-	@Autowired
-	private UserServiceImpl userServiceImpl;
 
 	@Override
 	public ItemsEntity saveItem(ItemDto itemDto) {
@@ -45,6 +42,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<ItemsEntity> findByInvoiceNumber(String invoiceNumber) {
 		List<ItemsEntity> items = itemRepo.findByInvoiceNumber(invoiceNumber);		
+		return items;
+	}
+	
+	@Override
+	public List<ItemsEntity> findByInvoiceId(String invoiceId) {
+		List<ItemsEntity> items = itemRepo.findByInvoiceId(invoiceId);		
 		return items;
 	}
 

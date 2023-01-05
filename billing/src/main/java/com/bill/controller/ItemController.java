@@ -65,4 +65,17 @@ public class ItemController {
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
 		}
 	}
+	
+	@GetMapping("/get/{invoiceId}")
+	@ApiOperation("get detials by id")
+	public ResponseDto<List<ItemsEntity>> getDetailByInvoiceId(@PathVariable("invoiceId") String invoiceId) {
+		try {
+			log.info("user {}", invoiceId);
+			List<ItemsEntity> response = itemService.findByInvoiceId(invoiceId);
+			return ResponseDto.success("user details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
 }

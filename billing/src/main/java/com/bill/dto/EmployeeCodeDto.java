@@ -7,12 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FileDto {
-	
-	private String fileName;
-	
-	private String invoiceId;
-	
-	private byte[] data;
+public class EmployeeCodeDto {
 
+	private String employeeName;
+	
+	private String email;
+	
 }

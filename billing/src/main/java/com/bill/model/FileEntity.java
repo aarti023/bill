@@ -34,6 +34,9 @@ public class FileEntity {
 
 	@Column(name = "file_type", columnDefinition = "varchar(256)")
 	private String fileType;
+	
+	@Column(name = "invoice_id", columnDefinition = "varchar(256)")
+	private String invoiceId;
 
 	@Lob
 	private byte[] data;
@@ -46,8 +49,10 @@ public class FileEntity {
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.data = data;
-		this.invoiceNumber = invoice;
-	}
+		this.invoiceId = invoice;
+}
+	
+
 
 	
 }

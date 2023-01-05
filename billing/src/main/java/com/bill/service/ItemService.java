@@ -12,4 +12,6 @@ public interface ItemService {
 
 	List<ItemsEntity> findByInvoiceNumber(String invoiceNumber);
 
+	List<ItemsEntity> findByInvoiceId(String invoiceId);
+
 }

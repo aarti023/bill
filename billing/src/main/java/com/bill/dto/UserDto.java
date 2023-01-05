@@ -62,8 +62,20 @@ public class UserDto {
 	private String reportingManager;
 
 	private String invoiceId;
-	
+
 	private UserType userType;
-	
+
 	private String paymentCycle;
+
+	private String taskId;
+
+	private String utr;
+
+	private String paidAmount;
+
+	private String paymentDate;
+
+	private String paymentStatus;
+
+	private String transactionDetail;
 }

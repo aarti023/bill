@@ -9,5 +9,7 @@ import com.bill.model.FileEntity;
 public interface FileRepository extends JpaRepository<FileEntity, Long> {
 
 	FileEntity findByInvoiceNumber(String invoice);
+	
+	FileEntity findByInvoiceId(String invoice);
 
 }

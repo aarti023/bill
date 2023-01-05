@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FileDto {
+public class UserUpdateDto {
 	
-	private String fileName;
-	
-	private String invoiceId;
-	
-	private byte[] data;
+	private String paidAmount;
 
+	private String paymentDate;
+
+	private String paymentStatus;
+
+	private String transactionDetail;
+	
 }

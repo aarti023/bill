@@ -22,17 +22,33 @@ public class FileController {
 	@Autowired
 	private FileService fileStorageService;
 
-	@PostMapping("/upload/file")
-	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,
-			@RequestParam(name = "invoiceNumber") String invoiceNumber) {
 
-		fileStorageService.save(multiPartFile, invoiceNumber);
+//	@PostMapping("/upload/file")
+//	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,
+//			@RequestParam(name = "invoiceId") String invoiceId,
+//			@RequestParam(name = "invoiceNumber") String invoiceNumber) {
+//
+//		fileStorageService.save(multiPartFile, invoiceId,invoiceNumber);
+//		return "File stored successfully";
+//	}
+	
+	@PostMapping("/upload/file")
+	public String uploadFilesInDB(@RequestParam(value = "file") MultipartFile multiPartFile,
+			@RequestParam(name = "invoiceId") String invoiceId) {
+
+		fileStorageService.save(multiPartFile, invoiceId);
 		return "File stored successfully";
 	}
 	
 	@GetMapping("get/file")
-	public MultipartFile getFileByInvoice(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
-		fileStorageService.getFile(invoiceNumber);
+	public MultipartFile getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
+		fileStorageService.getFile(invoiceId);
+		return null;
+	}
+	
+	@GetMapping("get/files/number")
+	public MultipartFile getFileByInvoiceNumber(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
+		fileStorageService.getFileByInvoiceNumber(invoiceNumber);
 		return null;
 	}
 	
