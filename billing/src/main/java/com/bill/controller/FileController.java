@@ -40,17 +40,17 @@ public class FileController {
 		return "File stored successfully";
 	}
 	
-	@GetMapping("get/file")
+	@GetMapping("get/file/")
 	public MultipartFile getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
 		fileStorageService.getFile(invoiceId);
 		return null;
 	}
 	
-	@GetMapping("get/files/number")
-	public MultipartFile getFileByInvoiceNumber(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
-		fileStorageService.getFileByInvoiceNumber(invoiceNumber);
-		return null;
-	}
+//	@GetMapping("get/files/number")
+//	public MultipartFile getFileByInvoiceNumber(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
+//		fileStorageService.getFileByInvoiceNumber(invoiceNumber);
+//		return null;
+//	}
 	
 	@GetMapping("get/all/files")
 	public MultipartFile getFiles() {

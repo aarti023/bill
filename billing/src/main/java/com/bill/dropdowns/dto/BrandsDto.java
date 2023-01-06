@@ -1,9 +1,5 @@
 package com.bill.dropdowns.dto;
 
-import java.util.List;
-
-import com.bill.dropdowns.SubBrandsEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

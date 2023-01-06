@@ -26,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @Table(name = "user")
 @Entity(name = "user")
-public class UserEntity {
+public class UserEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
