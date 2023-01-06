@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bill.dto.LoginDto;
@@ -28,7 +29,7 @@ public class LoginController {
 	private LoginService loginService;
 	
 	
-	@PostMapping("/save")
+	@PostMapping("/login")
 	@ApiOperation("save user details")
 	public ResponseDto<LoginResponseDto> saveLogin( @RequestBody LoginDto loginDto) {
 		try {
@@ -39,6 +40,22 @@ public class LoginController {
 			log.error("Exception occurred while login the data is {}", errorMessage);
 			return ResponseDto.failure("Please enter right data " + errorMessage);
 		}
+	 }
+	
+	@PostMapping("/logout")
+	@ApiOperation("logout details")
+	public ResponseDto<String> logOut(@RequestParam("email") String email, @RequestParam("employeeCode") String employeeCode) {
+		try {
+			log.info("relation {}",email, employeeCode);
+			String response = loginService.logOut(email,employeeCode);
+			return ResponseDto.success("relation details saved successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while relating the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while relating the data " + errorMessage);
+		}
 	}
+	
+	
+	
 
 }

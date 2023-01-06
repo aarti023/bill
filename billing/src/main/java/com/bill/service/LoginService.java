@@ -7,4 +7,6 @@ import com.bill.model.LoginEntity;
 public interface LoginService {
 	
 	LoginResponseDto saveLogin(LoginDto loginDto);
+
+	String logOut(String email, String employeeCode);
 }

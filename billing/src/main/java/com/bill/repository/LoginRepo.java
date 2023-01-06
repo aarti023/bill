@@ -11,6 +11,8 @@ import com.bill.model.LoginEntity;
 public interface LoginRepo extends JpaRepository<LoginEntity, Long> {
 
 	public Optional<LoginEntity> findByEmail(String email);
+
+	public Optional<LoginEntity> findOneByEmployeeCodeAndEmail(String employeeCode, String email);
 	
 
 }
