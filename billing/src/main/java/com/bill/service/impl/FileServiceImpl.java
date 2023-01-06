@@ -42,30 +42,30 @@ public class FileServiceImpl implements FileService {
 
 	@Override
 	public Optional<FileEntity> getFile(String invoiceId) {
-		FileEntity file = dbFileRepository.findByInvoiceId(invoiceId);
-		if (Objects.nonNull(file)) {
-			if (file.getFileType().equalsIgnoreCase("image/png")) {
-				ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
-				BufferedImage bImage2 = null;
-				try {
-					bImage2 = ImageIO.read(bis);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					java.io.File files = new java.io.File("C:\\Users\\aarti\\OneDrive\\Desktop\\img\\output.png");
-					ImageIO.write(bImage2, "jpg", files);
-					try (FileOutputStream fosFor = new FileOutputStream(files)) {
-						fosFor.write(file.getData());
-					}
-
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+//		FileEntity file = dbFileRepository.findByInvoiceId(invoiceId);
+//		if (Objects.nonNull(file)) {
+//			if (file.getFileType().equalsIgnoreCase("image/png")) {
+//				ByteArrayInputStream bis = new ByteArrayInputStream(file.getData());
+//				BufferedImage bImage2 = null;
+//				try {
+//					bImage2 = ImageIO.read(bis);
+//				} catch (IOException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//				try {
+//					java.io.File files = new java.io.File("C:\\Users\\aarti\\OneDrive\\Desktop\\img\\output.png");
+//					ImageIO.write(bImage2, "jpg", files);
+//					try (FileOutputStream fosFor = new FileOutputStream(files)) {
+//						fosFor.write(file.getData());
+//					}
+//
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}
 		return null;
 	}
 
