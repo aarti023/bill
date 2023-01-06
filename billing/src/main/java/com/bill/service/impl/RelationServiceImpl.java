@@ -31,10 +31,10 @@ public class RelationServiceImpl implements RelationService {
 	}
 
 	public static String generatePassword(String paswd) {
-		String characters = paswd + "!@#$%^&*()_+";
+		String characters = paswd;
 		SecureRandom rnd = new SecureRandom();
-		char[] password = new char[10];
-		for (int i = 0; i < 10; i++) {
+		char[] password = new char[8];
+		for (int i = 0; i < 8; i++) {
 			password[i] = characters.charAt(rnd.nextInt(characters.length()));
 		}
 

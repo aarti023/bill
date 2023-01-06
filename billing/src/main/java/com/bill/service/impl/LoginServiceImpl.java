@@ -48,6 +48,10 @@ public class LoginServiceImpl implements LoginService {
 				LoginResponseDto loginResponseDto=new LoginResponseDto();
 				loginResponseDto.setEmail(us.getEmail());
 				loginResponseDto.setStatus(true);
+				loginResponseDto.setEmployeeName(us.getEmployeeName());
+				loginResponseDto.setUserType(us.getUserType());
+				loginResponseDto.setEmployeeCode(us.getEmployeeCode());
+				
 				return loginResponseDto;
 				
 			}
