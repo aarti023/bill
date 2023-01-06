@@ -1,5 +1,7 @@
 package com.bill.dto;
 
+import com.bill.enums.UserType;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +16,7 @@ public class RelationDto {
 	private String employeeName;
 
 	private String email;
-
-	private String password;
+	
+	private UserType userType;
 	
 }

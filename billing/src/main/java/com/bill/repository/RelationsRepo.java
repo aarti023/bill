@@ -15,6 +15,8 @@ public interface RelationsRepo  extends JpaRepository<RelationsEntity,Long> {
 	Optional<RelationsEntity> findOneByEmployeeCodeAndPassword(String employeeCode, String password);
 //	public UserEntity find
 
+	Optional<RelationsEntity> findOneByEmployeeCodeAndEmail(String email, String employeeCode);
+
 //	RelationsEntity findByEmployeeCode();
 
 }

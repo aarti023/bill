@@ -2,6 +2,8 @@ package com.bill.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,5 +45,8 @@ public class RelationsEntity {
 	@Column(name = "email", columnDefinition = "varchar(256)")
 	private String email;
 	
+//	@Enumerated(EnumType.STRING)
+//	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
+
 }
