@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum UserType {
 	
+	USER("user"),
 	ADMIN("admin");
 	
 	public String name;

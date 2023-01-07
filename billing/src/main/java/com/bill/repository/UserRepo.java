@@ -3,10 +3,9 @@ package com.bill.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.bill.dto.EmployeeCodeDto;
+import com.bill.dto.LoginDto;
 import com.bill.enums.UserType;
 import com.bill.model.UserEntity;
 
@@ -21,5 +20,6 @@ public interface UserRepo extends JpaRepository<UserEntity, Long> {
 	public UserEntity findByEmployeeCode(String employeeCode);
 
 	public UserEntity findByInvoiceId(String invoiceId);
+
 
 }
