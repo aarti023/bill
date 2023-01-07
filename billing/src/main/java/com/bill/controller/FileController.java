@@ -1,6 +1,5 @@
 package com.bill.controller;
 
-import java.io.FileReader;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +31,6 @@ public class FileController {
 	@Autowired
 	private FileRepository fileRepo;
 
-
-//	@PostMapping("/upload/file")
-//	public String uploadFilesInDB(@RequestParam(name = "file") MultipartFile multiPartFile,
-//			@RequestParam(name = "invoiceId") String invoiceId,
-//			@RequestParam(name = "invoiceNumber") String invoiceNumber) {
-//
-//		fileStorageService.save(multiPartFile, invoiceId,invoiceNumber);
-//		return "File stored successfully";
-//	}
 	
 	@PostMapping("/upload/file")
 	public String uploadFilesInDB(@RequestParam(value = "file") MultipartFile multiPartFile,
@@ -49,24 +39,12 @@ public class FileController {
 		fileStorageService.save(multiPartFile, invoiceId);
 		return "File stored successfully";
 	}
-	
-//	@GetMapping("get/file/")
-//	public MultipartFile getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
-//		fileStorageService.getFile(invoiceId);
-//		return null;
-//	}
-	
-//	@GetMapping("get/files/number")
-//	public MultipartFile getFileByInvoiceNumber(@RequestParam(name = "invoiceNumber") String invoiceNumber) {
-//		fileStorageService.getFileByInvoiceNumber(invoiceNumber);
-//		return null;
-//	}
-	
-//	@GetMapping("get/all/files")
-//	public MultipartFile getFiles() {
-//		fileStorageService.getAllFile();
-//		return null;
-//	}
+
+	@GetMapping("get/all/files")
+	public MultipartFile getFiles() {
+		fileStorageService.getAllFile();
+		return null;
+	}
 	
 	@GetMapping("get/file/")
 	public ResponseEntity<byte[]> getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
