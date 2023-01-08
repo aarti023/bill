@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +28,6 @@ import com.bill.dropdowns.dto.SubCategories1Dto;
 import com.bill.dropdowns.dto.SubCategories2Dto;
 import com.bill.dropdowns.service.DropdownService;
 import com.bill.dto.ResponseDto;
-import com.google.gson.Gson;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;

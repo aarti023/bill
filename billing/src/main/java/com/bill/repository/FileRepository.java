@@ -1,5 +1,7 @@
 package com.bill.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,6 @@ public interface FileRepository extends JpaRepository<FileEntity, Long> {
 
 	FileEntity findByInvoiceNumber(String invoice);
 	
-	FileEntity findByInvoiceId(String invoice);
+	Optional<FileEntity> findByInvoiceId(String invoice);
 
 }
