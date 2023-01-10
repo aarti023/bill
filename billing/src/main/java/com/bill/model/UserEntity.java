@@ -140,5 +140,14 @@ public class UserEntity{
 
 	@Column(name = "updated_at", columnDefinition = "varchar(256)")
 	private String updatedAt;
+	
+	@Column(name = "cgst_amount", columnDefinition = "varchar(256)")
+	private String cgstAmount;
+	
+	@Column(name = "igst_amount", columnDefinition = "varchar(256)")
+	private String igstAmount;
+	
+	@Column(name = "sgst_amount", columnDefinition = "varchar(256)")
+	private String sgstAmount;
 
 }

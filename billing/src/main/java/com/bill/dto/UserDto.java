@@ -1,5 +1,7 @@
 package com.bill.dto;
 
+import javax.persistence.Column;
+
 import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -72,6 +74,12 @@ public class UserDto {
 	private String utr;
 
 	private String paidAmount;
+
+	private String cgstAmount;
+	
+	private String igstAmount;
+
+	private String sgstAmount;
 
 	private String paymentDate;
 
