@@ -58,6 +58,9 @@ public class FileController {
 		if(ft.equals("image/jpeg")) {
 			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(files); 
 		}
+		else if(ft.equals("image/png")) {
+			return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(files);
+		}
 		else {
 			return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(files);
 		}

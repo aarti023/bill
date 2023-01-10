@@ -24,32 +24,33 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public LoginResponseDto saveLogin(LoginDto loginDto) {
-
-//		RelationsEntity relation = relationRepo.findByEmployeeCode();
-		Optional<RelationsEntity> userentity = relationRepo.findOneByEmployeeCodeAndPassword(loginDto.getEmployeeCode(),
+		Optional<RelationsEntity> relation = relationRepo.findOneByEmployeeCodeAndPassword(loginDto.getEmployeeCode(),
 				loginDto.getPassword());
 
-		if (userentity.isPresent()) {
+		if (relation.isPresent()) {
 
-			Optional<LoginEntity> loginti = loginRepo.findByEmail(userentity.get().getEmail());
-			if (loginti.isPresent()) {
+			Optional<LoginEntity> logins = loginRepo.findByEmail(relation.get().getEmail());
+			if (logins.isPresent()) {
 				throw new LoginResponseException("This user already logged in");
 			} else {
-				RelationsEntity us = userentity.get();
-				LoginEntity loginobj = new LoginEntity();
-				loginobj.setEmail(us.getEmail());
-				loginobj.setEmployeeCode(us.getEmployeeCode());
-				loginobj.setEmployeeName(us.getEmployeeName());
-				loginobj.setStatus(true);
-				loginobj.setUserType(us.getUserType());
-				LoginEntity le = loginRepo.save(loginobj);
+				RelationsEntity relationEntity = relation.get();
+				LoginEntity login = new LoginEntity();
+				login.setEmail(relationEntity.getEmail());
+				login.setEmployeeCode(relationEntity.getEmployeeCode());
+				login.setEmployeeName(relationEntity.getEmployeeName());
+				login.setStatus(true);
+				login.setPassword(relationEntity.getPassword());
+				login.setUserType(relationEntity.getUserType());
+				login.setReportingManager(relationEntity.getReportingManager());
+	
+				LoginEntity loginEntity = loginRepo.save(login);
 				LoginResponseDto loginResponseDto = new LoginResponseDto();
-				loginResponseDto.setEmail(us.getEmail());
+				loginResponseDto.setEmail(relationEntity.getEmail());
 				loginResponseDto.setStatus(true);
-				loginResponseDto.setEmployeeName(us.getEmployeeName());
-				loginResponseDto.setUserType(us.getUserType());
-				loginResponseDto.setEmployeeCode(us.getEmployeeCode());
-
+				loginResponseDto.setEmployeeName(relationEntity.getEmployeeName());
+				loginResponseDto.setUserType(relationEntity.getUserType());
+				loginResponseDto.setEmployeeCode(relationEntity.getEmployeeCode());
+				loginResponseDto.setReportingManager(relationEntity.getReportingManager());
 				return loginResponseDto;
 
 			}
@@ -65,7 +66,7 @@ public class LoginServiceImpl implements LoginService {
 			Optional<LoginEntity> loginEntitiy = loginRepo.findOneByEmployeeCodeAndEmail(employeeCode, email);
 			if (loginEntitiy.isPresent()) {
 				loginRepo.delete(loginEntitiy.get());
-				return "log out";
+				return "loged out";
 			}
 			throw new LoginResponseException("Login first");
 		}

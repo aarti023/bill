@@ -13,4 +13,6 @@ public class EmployeeCodeDto {
 	
 	private String email;
 	
+	private String reportingManager;
+	
 }

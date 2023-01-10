@@ -45,8 +45,11 @@ public class RelationsEntity {
 	@Column(name = "email", columnDefinition = "varchar(256)")
 	private String email;
 	
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "user_type", columnDefinition = "varchar(50)")
+	@Column(name = "reporting_manager", columnDefinition = "varchar(256)")
+	private String reportingManager;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
 
 }

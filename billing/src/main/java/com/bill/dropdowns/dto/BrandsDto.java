@@ -1,5 +1,7 @@
 package com.bill.dropdowns.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +19,5 @@ public class BrandsDto {
 
 	private String brandsName;
 
-//	private List<SubBrandsDto> subBrands;
+	private List<SubBrandsDto> subBrands;
 }
