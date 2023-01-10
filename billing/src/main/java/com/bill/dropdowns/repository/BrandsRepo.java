@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.bill.dropdowns.BrandsEntity;
+import com.bill.dropdowns.dto.BrandsDto;
 
 @Repository
 public interface BrandsRepo extends JpaRepository<BrandsEntity, Long>{
 
 	List<BrandsEntity> findBybrandsName(String brand);
-
 }

@@ -14,5 +14,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubBrandsDto {
+	
 	private String subBrandsName;
 }

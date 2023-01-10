@@ -1,5 +1,6 @@
 package com.bill.dropdowns.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -71,7 +72,7 @@ public class DropdownServiceImpl implements DropdownService {
 	}
 
 	@Override
-	public List<ExpensesTypeEntity> getAllExpenses() {
+	public List<ExpensesTypeEntity> getAllExpenseType() {
 		return expensesRepo.findAll();
 
 	}
@@ -119,6 +120,7 @@ public class DropdownServiceImpl implements DropdownService {
 
 	@Override
 	public SubBrandsEntity saveSubBrands(SubBrandsDto subBrandsDto) {
+		
 		SubBrandsEntity subBrand = new SubBrandsEntity();
 		BeanUtils.copyProperties(subBrandsDto, subBrand);
 
@@ -184,7 +186,7 @@ public class DropdownServiceImpl implements DropdownService {
 	}
 
 	@Override
-	public ExpensesTypeEntity saveExpenses(ExpensesDto expensesDto) {
+	public ExpensesTypeEntity saveExpenseType(ExpensesDto expensesDto) {
 		ExpensesTypeEntity expenses = new ExpensesTypeEntity();
 		BeanUtils.copyProperties(expensesDto, expenses);
 
@@ -202,6 +204,8 @@ public class DropdownServiceImpl implements DropdownService {
 //		log.info("Created brand with this  id: " + brands.getId());
 //		return brands;
 //	}
+
+	
 
 //	@Override
 //	public List<BrandsEntity> saveAll(List<BrandsEntity> brandsEntity) {
@@ -242,5 +246,19 @@ public class DropdownServiceImpl implements DropdownService {
 //		departments.stream().forEach(s ->s.getCategories().stream().forEach(c -> list.add(c.getCategoriesName())));
 //		return list;
 //	}
+	
+	@Override
+	public List<String> getSubBrand(String brands) {
+		List<BrandsEntity> brand = brandsRepo.findBybrandsName(brands);
+		List<String> list = new ArrayList<>();
+		brand.stream().forEach(s ->s.getSubBrands().stream().forEach(c -> list.add(c.getSubBrandsName())));
+		return list;
+	}
+
+	@Override
+	public List<BrandsEntity> saveSubBrandWithBrand(List<BrandsEntity> brandEntity) {
+		brandsRepo.saveAll(brandEntity);
+		return brandEntity;
+	}
 
 }

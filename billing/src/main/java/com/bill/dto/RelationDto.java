@@ -19,4 +19,6 @@ public class RelationDto {
 	
 	private UserType userType;
 	
+	private String reportingManager;
+	
 }

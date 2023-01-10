@@ -21,5 +21,7 @@ public class LoginResponseDto {
 	
 	private UserType userType;
 	
+	private String ReportingManager;
+	
 
 }

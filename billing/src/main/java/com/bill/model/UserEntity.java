@@ -135,4 +135,10 @@ public class UserEntity{
 	@Column(name = "transaction_detail", columnDefinition = "varchar(256)")
 	private String transactionDetail;
 
+	@Column(name = "updated_by", columnDefinition = "varchar(256)")
+	private String updatedBy;
+
+	@Column(name = "updated_at", columnDefinition = "varchar(256)")
+	private String updatedAt;
+
 }

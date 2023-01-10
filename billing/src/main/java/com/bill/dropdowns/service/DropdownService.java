@@ -39,7 +39,7 @@ public interface DropdownService {
 
 	List<SubBrandsEntity> getAllSubBrands();
 	
-	List<ExpensesTypeEntity> getAllExpenses();
+	List<ExpensesTypeEntity> getAllExpenseType();
 	
 	List<Departments> getAllDepartments();
 	
@@ -65,7 +65,12 @@ public interface DropdownService {
 	
     SubCategories2Entity saveSubCategories2(SubCategories2Dto subCategories2Dto);
     
-    ExpensesTypeEntity saveExpenses (ExpensesDto expensesDto);
+    ExpensesTypeEntity saveExpenseType (ExpensesDto expensesDto);
+    
+    public List<String> getSubBrand(String Brands);
+    
+    public List<BrandsEntity> saveSubBrandWithBrand(List<BrandsEntity> brandEntity);
+	
 	
 	
 }

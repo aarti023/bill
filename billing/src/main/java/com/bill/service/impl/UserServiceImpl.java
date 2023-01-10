@@ -34,9 +34,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private ItemRepo itemRepo;
-
-//	@Autowired
-//	private FileRepository fileRepo;
 	
 	public UserEntity saveUser(UserDto userDto) {
 		userDto.setInvoiceId(getGenrateUserId(userDto.getUserType(), userDto.getInvoiceId()));
@@ -53,6 +50,7 @@ public class UserServiceImpl implements UserService {
 		EmployeeCodeDto employeeCodeDto = new EmployeeCodeDto();
 		employeeCodeDto.setEmail(user.getEmail());
 		employeeCodeDto.setEmployeeName(user.getEmployeeName());
+		employeeCodeDto.setReportingManager(user.getReportingManager());
 		
 		return employeeCodeDto;
 
@@ -98,7 +96,11 @@ public class UserServiceImpl implements UserService {
 		switch (userType) {
 
 		case ADMIN:
-			id = "P" + String.format("%09d", random1.nextInt(10000000));
+			id = "A" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case USER:
+			id = "U" + String.format("%09d", random1.nextInt(10000000));
 			break;
 
 		default:
@@ -110,7 +112,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<MergeAllTableDto> getAll() {
-		System.out.println("enity");
 		List<ItemsEntity> items = itemRepo.findAll();
 		List<UserEntity> users = userRepo.findAll();
 //		List<FileEntity> files = fileRepo.findAll();
@@ -194,6 +195,8 @@ public class UserServiceImpl implements UserService {
 		user.setPaymentStatus(userUpdateDto.getPaymentStatus());
 		user.setPaymentDate(userUpdateDto.getPaymentDate());
 		user.setTransactionDetail(userUpdateDto.getTransactionDetail());
+		user.setUpdatedAt(userUpdateDto.getUpdatedAt());
+		user.setUpdatedBy(userUpdateDto.getUpdatedBy());
 		userRepo.save(user);
 		return userUpdateDto;
 		

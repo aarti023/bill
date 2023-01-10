@@ -24,22 +24,20 @@ public class RelationServiceImpl implements RelationService {
 	public RelationsEntity saveRelations(RelationDto relationDto) {
 		RelationsEntity relation = new RelationsEntity();
 		BeanUtils.copyProperties(relationDto, relation);
-		relation.setPassword(generatePassword(relationDto.getEmail() + relationDto.getEmployeeCode())
-				+ relationDto.getEmployeeName());
+		relation.setPassword(generatePassword(relationDto.getEmployeeCode()));
 		relationsRepo.save(relation);
 		return relation;
 	}
-
+	
 	public static String generatePassword(String paswd) {
-		String characters = paswd;
-		SecureRandom rnd = new SecureRandom();
-		char[] password = new char[8];
-		for (int i = 0; i < 8; i++) {
-			password[i] = characters.charAt(rnd.nextInt(characters.length()));
-		}
-
-		return new String(password);
-	}
+	    String characters = "abcdefghijklmnopqrstuvwxyz0123456789@";
+	    SecureRandom rnd = new SecureRandom();
+	    char[] password = new char[8];
+	    for (int i = 0; i < 8; i++) {
+	      password[i] = characters.charAt(rnd.nextInt(characters.length()));
+	    }
+	    return new String(password);
+	  }
 
 	@Override
 	public LoginDto forgetPassword(String email,String employeeCode) {
@@ -47,8 +45,7 @@ public class RelationServiceImpl implements RelationService {
 		
 		if (relationsEntity.isPresent()) {
 			LoginDto login = new LoginDto();
-			String pass = generatePassword(relationsEntity.get().getEmail() + relationsEntity.get().getEmployeeCode())
-					+ relationsEntity.get().getEmployeeName();
+			String pass = generatePassword(relationsEntity.get().getEmployeeCode());
 			login.setEmployeeCode(relationsEntity.get().getEmployeeCode());
 			login.setPassword(pass);
 			relationsEntity.get().setPassword(pass);
