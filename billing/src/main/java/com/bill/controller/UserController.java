@@ -59,47 +59,6 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/get/data/{invoiceNumber}")
-	@ApiOperation("get detials by id")
-	public ResponseDto<List<UserEntity>> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
-		try {
-			log.info("user {}", invoiceNumber);
-			List<UserEntity> response = userService.findByInvoiceNumber(invoiceNumber);
-			return ResponseDto.success("user details get successfully", response);
-		} catch (Exception errorMessage) {
-			log.error("Exception occurred while getting the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-		}
-	}
-	
-	
-	@GetMapping("/get/name/email/{employeeCode}")
-	@ApiOperation("get name and email by employeeCode")
-	public ResponseDto<EmployeeCodeDto> getDetailByEmployeeCode(@PathVariable("employeeCode") String employeeCode) {
-		try {
-			log.info("user {}", employeeCode);
-			EmployeeCodeDto response = userService.getNameAndEmailByEmployeeCode(employeeCode);
-			return ResponseDto.success("user details get successfully", response);
-		} catch (Exception errorMessage) {
-			log.error("Exception occurred while getting the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-		}
-	}
-
-	
-	@GetMapping("/gets/")
-	@ApiOperation("get all details of merge data")
-	public ResponseDto<List<MergeAllTableDto>> getAll() {
-		try {
-			log.info("user {}");
-			List<MergeAllTableDto> response = userService.getAll();
-			return ResponseDto.success("All User details get successfully", response);
-		} catch (Exception errorMessage) {
-			log.error("Exception occurred while getting the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-		}
-	}
-	
 	@PutMapping("/update/{invoiceId}")
 	@ApiOperation("update user details")
 	public ResponseDto<UserUpdateDto> updateDetail(@PathVariable("invoiceId") String invoiceId, @RequestBody UserUpdateDto userUpdateDto) {
@@ -112,5 +71,48 @@ public class UserController {
 			return ResponseDto.failure("Exception occurred while updating the data " + errorMessage);
 		}
 	}
+	
+//	@GetMapping("/get/data/{invoiceNumber}")
+//	@ApiOperation("get detials by id")
+//	public ResponseDto<List<UserEntity>> getDetail(@PathVariable("invoiceNumber") String invoiceNumber) {
+//		try {
+//			log.info("user {}", invoiceNumber);
+//			List<UserEntity> response = userService.findByInvoiceNumber(invoiceNumber);
+//			return ResponseDto.success("user details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
+	
+	
+//	@GetMapping("/get/name/email/{employeeCode}")
+//	@ApiOperation("get name and email by employeeCode")
+//	public ResponseDto<EmployeeCodeDto> getDetailByEmployeeCode(@PathVariable("employeeCode") String employeeCode) {
+//		try {
+//			log.info("user {}", employeeCode);
+//			EmployeeCodeDto response = userService.getNameAndEmailByEmployeeCode(employeeCode);
+//			return ResponseDto.success("user details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
+
+	
+//	@GetMapping("/gets/")
+//	@ApiOperation("get all details of merge data")
+//	public ResponseDto<List<MergeAllTableDto>> getAll() {
+//		try {
+//			log.info("user {}");
+//			List<MergeAllTableDto> response = userService.getAll();
+//			return ResponseDto.success("All User details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
+	
+	
 	
 }

@@ -40,11 +40,11 @@ public class FileController {
 		return "File stored successfully";
 	}
 
-	@GetMapping("get/all/files")
-	public MultipartFile getFiles() {
-		fileStorageService.getAllFile();
-		return null;
-	}
+//	@GetMapping("get/all/files")
+//	public MultipartFile getFiles() {
+//		fileStorageService.getAllFile();
+//		return null;
+//	}
 	
 	@GetMapping("get/file/")
 	public ResponseEntity<byte[]> getFileByInvoiceId(@RequestParam(name = "invoiceId") String invoiceId) {
