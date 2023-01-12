@@ -13,10 +13,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemsDto {
+public class PartnerNameCodeDto {
+	
 	private Long id;
 
-	private String itemsName;
-	
+	private String partnerNameCode;
+
 	private String others;
+	
 }

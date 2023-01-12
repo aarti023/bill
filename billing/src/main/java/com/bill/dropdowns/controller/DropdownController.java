@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bill.dropdowns.BrandsEntity;
 import com.bill.dropdowns.ExpensesTypeEntity;
 import com.bill.dropdowns.ItemsEntity;
+import com.bill.dropdowns.PartnerNameAndCodeEntity;
 import com.bill.dropdowns.dto.BrandsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
 import com.bill.dropdowns.dto.ItemsDto;
+import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.service.DropdownService;
 import com.bill.dto.ResponseDto;
 import com.google.gson.Gson;
@@ -80,6 +82,31 @@ public class DropdownController {
 		ItemsEntity response = dropdownService.saveItems(itemsDto);
 
 		return ResponseDto.success("expenses Add Successfully", response);
+
+	}
+	
+	@GetMapping("/get/partners/")
+	@ApiOperation("get all partner anme and code")
+	public ResponseDto<List<PartnerNameAndCodeEntity>> getPartnersNameCode() {
+		try {
+			log.info("dropdown of getting expenseType {}");
+			List<PartnerNameAndCodeEntity> response = dropdownService.getPartnerNameAndCode();
+			return ResponseDto.success("All partner name and code get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the partner anme and code " + errorMessage);
+		}
+	}
+
+	@PostMapping(value = "/partners")
+	@ApiOperation("add partners name and code")
+	public ResponseDto<PartnerNameAndCodeEntity> savePartnersNameCode(@RequestBody PartnerNameCodeDto partnerNameAndCodeDto) {
+
+		log.info("dropdown of adding partner name and code {} [" + partnerNameAndCodeDto + "]");
+
+		PartnerNameAndCodeEntity response = dropdownService.addPartnerNameCode(partnerNameAndCodeDto);
+
+		return ResponseDto.success(" Add partner name and codeSuccessfully", response);
 
 	}
 

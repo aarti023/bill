@@ -13,6 +13,7 @@ import com.bill.dropdowns.Departments;
 import com.bill.dropdowns.ExpensesTypeEntity;
 import com.bill.dropdowns.ItemsEntity;
 import com.bill.dropdowns.LocationsEntity;
+import com.bill.dropdowns.PartnerNameAndCodeEntity;
 import com.bill.dropdowns.SubBrandsEntity;
 import com.bill.dropdowns.SubCategories1Entity;
 import com.bill.dropdowns.SubCategories2Entity;
@@ -22,6 +23,7 @@ import com.bill.dropdowns.dto.DepartmentsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
 import com.bill.dropdowns.dto.ItemsDto;
 import com.bill.dropdowns.dto.LocationsDto;
+import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.dto.SubBrandsDto;
 import com.bill.dropdowns.dto.SubCategories1Dto;
 import com.bill.dropdowns.dto.SubCategories2Dto;
@@ -31,6 +33,7 @@ import com.bill.dropdowns.repository.DepartmentRepo;
 import com.bill.dropdowns.repository.ExpensesRepo;
 import com.bill.dropdowns.repository.ItemsRepo;
 import com.bill.dropdowns.repository.LocationRepo;
+import com.bill.dropdowns.repository.PartnerNameCodeRepo;
 import com.bill.dropdowns.repository.SubBrandRepo;
 import com.bill.dropdowns.repository.SubCategories1Repo;
 import com.bill.dropdowns.repository.SubCategories2Repo;
@@ -71,6 +74,9 @@ public class DropdownServiceImpl implements DropdownService {
 	
 	@Autowired
 	private ItemsRepo itemsRepo;
+	
+	@Autowired
+	private PartnerNameCodeRepo partnerNameCodeRepo;
 
 	@Override
 	public List<BrandsEntity> getAllBrands() {
@@ -116,6 +122,23 @@ public class DropdownServiceImpl implements DropdownService {
 	@Override
 	public List<ItemsEntity> getItems() {
 		return itemsRepo.findAll();
+	}
+	
+	@Override
+	public List<PartnerNameAndCodeEntity> getPartnerNameAndCode() {
+		return partnerNameCodeRepo.findAll();
+	}
+	
+
+	@Override
+	public PartnerNameAndCodeEntity addPartnerNameCode(PartnerNameCodeDto partnerNameCodeDto) {
+		PartnerNameAndCodeEntity partner = new PartnerNameAndCodeEntity();
+		BeanUtils.copyProperties(partnerNameCodeDto, partner);
+
+		partnerNameCodeRepo.save(partner);
+		log.info("Add partner name and code with this  id: " + partner.getId());
+
+		return partner;
 	}
 
 	@Override
@@ -281,5 +304,7 @@ public class DropdownServiceImpl implements DropdownService {
 		log.info("Add items with this  id: " + items.getId());
 		return items;
 	}
+
+	
 
 }

@@ -14,17 +14,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "items")
-@Entity(name = "items")
-public class ItemsEntity {
+@Table(name = "partnerNameCode")
+@Entity(name = "partnerNameCode")
+public class PartnerNameAndCodeEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column (name = "id")
 	private Long id;
-
-	@Column(name = "items_name", columnDefinition = "varchar(100)")
-	private String itemsName;
-
-	@Column(name = "others", columnDefinition = "varchar(100)")
+	
+	@Column(name = "partner_name_code" , columnDefinition = "varchar(100)")
+	private String partnerNameCode;
+	
+	@Column(name = "others" , columnDefinition = "varchar(100)")
 	private String others;
 }
