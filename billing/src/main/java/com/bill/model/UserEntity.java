@@ -92,11 +92,11 @@ public class UserEntity{
 	@Column(name = "expenses_category", columnDefinition = "varchar(256)")
 	private String expensesCategory;
 
-	@Column(name = "customer_partner_code", columnDefinition = "varchar(256)")
-	private String partnerCode;
+	@Column(name = "partner_name_code", columnDefinition = "varchar(256)")
+	private String partnerNameCode;
 
-	@Column(name = "customer_partner_name", columnDefinition = "varchar(256)")
-	private String partnerName;
+	@Column(name = "other_partner", columnDefinition = "varchar(256)")
+	private String otherPartner;
 
 	@Column(name = "invoice_description", columnDefinition = "varchar(256)")
 	private String invoiceDescription;

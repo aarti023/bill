@@ -144,8 +144,6 @@ public class UserServiceImpl implements UserService {
 					dto.setExpensesType(user.getExpensesType());
 					dto.setPayDirectCard(user.getPayDirectCard());
 					dto.setExpensesCategory(user.getExpensesCategory());
-					dto.setPartnerCode(user.getPartnerCode());
-					dto.setPartnerName(user.getPartnerName());
 					dto.setInvoiceDescription(user.getInvoiceDescription());
 					dto.setServiceCategory(user.getServiceCategory());
 					dto.setInvoiceId(user.getInvoiceId());
@@ -156,8 +154,6 @@ public class UserServiceImpl implements UserService {
 					dto.setUtr(user.getUtr());
 
 					dto.setDateOfInvoice(item.getDateOfInvoice());
-					dto.setItemName(item.getItemName());
-					dto.setItemCode(item.getItemCode());
 					dto.setCategoryItem(item.getCategoryItem());
 					dto.setUnit(item.getUnit());
 					dto.setQuantity(item.getQuantity());

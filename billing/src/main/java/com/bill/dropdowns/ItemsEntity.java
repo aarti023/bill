@@ -22,8 +22,8 @@ public class ItemsEntity {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "items_name", columnDefinition = "varchar(100)")
-	private String itemsName;
+	@Column(name = "items_name_code", columnDefinition = "varchar(100)")
+	private String itemNameCode;
 
 	@Column(name = "others", columnDefinition = "varchar(100)")
 	private String others;

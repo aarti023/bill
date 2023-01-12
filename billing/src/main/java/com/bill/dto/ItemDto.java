@@ -13,9 +13,7 @@ public class ItemDto {
 
 	private String dateOfInvoice;
 
-	private String itemCode;
-
-	private String itemName;
+	private String itemNameCode;
 
 	private String categoryItem;
 
@@ -46,5 +44,7 @@ public class ItemDto {
 	private double tdsAmount;
 
 	private String invoiceId;
+	
+	private String otherItem;
 
 }

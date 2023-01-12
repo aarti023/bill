@@ -24,7 +24,4 @@ public class PartnerNameAndCodeEntity {
 	
 	@Column(name = "partner_name_code" , columnDefinition = "varchar(100)")
 	private String partnerNameCode;
-	
-	@Column(name = "others" , columnDefinition = "varchar(100)")
-	private String others;
 }

@@ -16,7 +16,5 @@ import lombok.experimental.SuperBuilder;
 public class ItemsDto {
 	private Long id;
 
-	private String itemsName;
-	
-	private String others;
+	private String itemNameCode;
 }

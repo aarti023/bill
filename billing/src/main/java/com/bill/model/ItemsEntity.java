@@ -34,11 +34,11 @@ public class ItemsEntity {
 	@Column(name = "date_of_Invoice", columnDefinition = "varchar(256)")
 	private String dateOfInvoice;
 		
-	@Column(name = "item_Code", columnDefinition = "varchar(256)")
-	private String itemCode;
+	@Column(name = "other_item", columnDefinition = "varchar(256)")
+	private String otherItem;
 	
-	@Column(name = "item_name", columnDefinition = "varchar(256)")
-	private String itemName;
+	@Column(name = "item_name_code", columnDefinition = "varchar(256)")
+	private String itemNameCode;
 	
 	@Column(name = "category_item", columnDefinition = "varchar(256)")
 	private String categoryItem;

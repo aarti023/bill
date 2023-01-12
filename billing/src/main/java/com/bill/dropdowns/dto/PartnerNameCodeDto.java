@@ -18,7 +18,5 @@ public class PartnerNameCodeDto {
 	private Long id;
 
 	private String partnerNameCode;
-
-	private String others;
 	
 }
