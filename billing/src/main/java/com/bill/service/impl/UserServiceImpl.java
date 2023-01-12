@@ -193,7 +193,7 @@ public class UserServiceImpl implements UserService {
 		UserEntity user = userRepo.findByInvoiceId(invoiceId);
 		user.setPaidAmount(userUpdateDto.getPaidAmount());
 		user.setPaymentStatus(userUpdateDto.getPaymentStatus());
-		user.setPaymentDate(userUpdateDto.getReimbursementDate());
+		user.setReimbursementDate(userUpdateDto.getReimbursementDate());
 		user.setTransactionDetail(userUpdateDto.getTransactionDetail());
 		user.setUpdatedAt(userUpdateDto.getUpdatedAt());
 		user.setUpdatedBy(userUpdateDto.getUpdatedBy());
