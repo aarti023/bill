@@ -22,7 +22,7 @@ public class ItemsNameCodeEntity {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "items_name_code", columnDefinition = "varchar(100)")
+	@Column(name = "item_name_code", columnDefinition = "varchar(100)")
 	private String itemNameCode;
 
 }
