@@ -15,8 +15,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class PartnerNameCodeDto {
 	
-	private Long id;
-
 	private String partnerNameCode;
 	
 }
