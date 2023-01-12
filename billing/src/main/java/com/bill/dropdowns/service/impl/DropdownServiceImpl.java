@@ -11,7 +11,7 @@ import com.bill.dropdowns.BrandsEntity;
 import com.bill.dropdowns.CategoriesEntity;
 import com.bill.dropdowns.Departments;
 import com.bill.dropdowns.ExpensesTypeEntity;
-import com.bill.dropdowns.ItemsEntity;
+import com.bill.dropdowns.ItemsNameCodeEntity;
 import com.bill.dropdowns.LocationsEntity;
 import com.bill.dropdowns.PartnerNameAndCodeEntity;
 import com.bill.dropdowns.SubBrandsEntity;
@@ -21,7 +21,7 @@ import com.bill.dropdowns.dto.BrandsDto;
 import com.bill.dropdowns.dto.CategoriesDto;
 import com.bill.dropdowns.dto.DepartmentsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
-import com.bill.dropdowns.dto.ItemsDto;
+import com.bill.dropdowns.dto.ItemsNameCodeDto;
 import com.bill.dropdowns.dto.LocationsDto;
 import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.dto.SubBrandsDto;
@@ -120,7 +120,7 @@ public class DropdownServiceImpl implements DropdownService {
 	}
 	
 	@Override
-	public List<ItemsEntity> getItems() {
+	public List<ItemsNameCodeEntity> getItems() {
 		return itemsRepo.findAll();
 	}
 	
@@ -296,8 +296,8 @@ public class DropdownServiceImpl implements DropdownService {
 	}
 
 	@Override
-	public ItemsEntity saveItems(ItemsDto itemsDto) {
-		ItemsEntity items = new ItemsEntity();
+	public ItemsNameCodeEntity saveItems(ItemsNameCodeDto itemsDto) {
+		ItemsNameCodeEntity items = new ItemsNameCodeEntity();
 		BeanUtils.copyProperties(itemsDto, items);
 
 		itemsRepo.save(items);

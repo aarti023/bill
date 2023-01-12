@@ -6,7 +6,7 @@ import com.bill.dropdowns.BrandsEntity;
 import com.bill.dropdowns.CategoriesEntity;
 import com.bill.dropdowns.Departments;
 import com.bill.dropdowns.ExpensesTypeEntity;
-import com.bill.dropdowns.ItemsEntity;
+import com.bill.dropdowns.ItemsNameCodeEntity;
 import com.bill.dropdowns.LocationsEntity;
 import com.bill.dropdowns.PartnerNameAndCodeEntity;
 import com.bill.dropdowns.SubBrandsEntity;
@@ -16,7 +16,7 @@ import com.bill.dropdowns.dto.BrandsDto;
 import com.bill.dropdowns.dto.CategoriesDto;
 import com.bill.dropdowns.dto.DepartmentsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
-import com.bill.dropdowns.dto.ItemsDto;
+import com.bill.dropdowns.dto.ItemsNameCodeDto;
 import com.bill.dropdowns.dto.LocationsDto;
 import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.dto.SubBrandsDto;
@@ -41,7 +41,7 @@ public interface DropdownService {
 	
 	List<PartnerNameAndCodeEntity> getPartnerNameAndCode();
 	
-	List<ItemsEntity> getItems();
+	List<ItemsNameCodeEntity> getItems();
 	
 	List<BrandsEntity> getAllBrands();
 
@@ -79,7 +79,7 @@ public interface DropdownService {
     
     public List<BrandsEntity> saveSubBrandWithBrand(List<BrandsEntity> brandEntity);
 	
-	ItemsEntity saveItems(ItemsDto itemsDto);
+	ItemsNameCodeEntity saveItems(ItemsNameCodeDto itemsDto);
 	
 	PartnerNameAndCodeEntity addPartnerNameCode(PartnerNameCodeDto partnerNameCodeDto);
 

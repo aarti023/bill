@@ -13,8 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemsDto {
-	private Long id;
-
+public class ItemsNameCodeDto {
+	
 	private String itemNameCode;
 }

@@ -35,7 +35,7 @@ public class ItemsEntity {
 	private String dateOfInvoice;
 		
 	@Column(name = "other_item", columnDefinition = "varchar(256)")
-	private String otherItem;
+	private String addNewItem;
 	
 	@Column(name = "item_name_code", columnDefinition = "varchar(256)")
 	private String itemNameCode;

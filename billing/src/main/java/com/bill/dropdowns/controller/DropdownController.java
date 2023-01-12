@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bill.dropdowns.BrandsEntity;
 import com.bill.dropdowns.ExpensesTypeEntity;
-import com.bill.dropdowns.ItemsEntity;
+import com.bill.dropdowns.ItemsNameCodeEntity;
 import com.bill.dropdowns.PartnerNameAndCodeEntity;
 import com.bill.dropdowns.dto.BrandsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
-import com.bill.dropdowns.dto.ItemsDto;
+import com.bill.dropdowns.dto.ItemsNameCodeDto;
 import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.service.DropdownService;
 import com.bill.dto.ResponseDto;
@@ -61,11 +61,11 @@ public class DropdownController {
 	}
 	
 	@GetMapping("/get/items/")
-	@ApiOperation("get all items")
-	public ResponseDto<List<ItemsEntity>> getItems() {
+	@ApiOperation("get all items code and name")
+	public ResponseDto<List<ItemsNameCodeEntity>> getItems() {
 		try {
 			log.info("dropdown of getting expenseType {}");
-			List<ItemsEntity> response = dropdownService.getItems();
+			List<ItemsNameCodeEntity> response = dropdownService.getItems();
 			return ResponseDto.success("All Expenses get successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the data is {}", errorMessage);
@@ -74,12 +74,12 @@ public class DropdownController {
 	}
 
 	@PostMapping(value = "/items")
-	@ApiOperation("add items")
-	public ResponseDto<ItemsEntity> saveItems(@RequestBody ItemsDto itemsDto) {
+	@ApiOperation("add items code and name")
+	public ResponseDto<ItemsNameCodeEntity> saveItems(@RequestBody ItemsNameCodeDto itemsDto) {
 
 		log.info("dropdown of adding items {} [" + itemsDto + "]");
 
-		ItemsEntity response = dropdownService.saveItems(itemsDto);
+		ItemsNameCodeEntity response = dropdownService.saveItems(itemsDto);
 
 		return ResponseDto.success("expenses Add Successfully", response);
 

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "items")
 @Entity(name = "items")
-public class ItemsEntity {
+public class ItemsNameCodeEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -25,6 +25,4 @@ public class ItemsEntity {
 	@Column(name = "items_name_code", columnDefinition = "varchar(100)")
 	private String itemNameCode;
 
-	@Column(name = "others", columnDefinition = "varchar(100)")
-	private String others;
 }

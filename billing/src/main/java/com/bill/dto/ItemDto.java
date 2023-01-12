@@ -45,6 +45,6 @@ public class ItemDto {
 
 	private String invoiceId;
 	
-	private String otherItem;
+	private String addNewItem;
 
 }
