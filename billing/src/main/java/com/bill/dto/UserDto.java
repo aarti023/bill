@@ -86,4 +86,6 @@ public class UserDto {
 	private String paymentStatus;
 
 	private String transactionDetail;
+	
+	private String reimbursementDate;
 }

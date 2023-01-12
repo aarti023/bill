@@ -149,5 +149,8 @@ public class UserEntity{
 	
 	@Column(name = "sgst_amount", columnDefinition = "varchar(256)")
 	private String sgstAmount;
+	
+	@Column(name = "reimbursement_date", columnDefinition = "varchar(256)")
+	private String reimbursementDate;
 
 }
