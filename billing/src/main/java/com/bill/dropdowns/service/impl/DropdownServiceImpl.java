@@ -11,6 +11,7 @@ import com.bill.dropdowns.BrandsEntity;
 import com.bill.dropdowns.CategoriesEntity;
 import com.bill.dropdowns.Departments;
 import com.bill.dropdowns.ExpensesTypeEntity;
+import com.bill.dropdowns.ItemsEntity;
 import com.bill.dropdowns.LocationsEntity;
 import com.bill.dropdowns.SubBrandsEntity;
 import com.bill.dropdowns.SubCategories1Entity;
@@ -19,6 +20,7 @@ import com.bill.dropdowns.dto.BrandsDto;
 import com.bill.dropdowns.dto.CategoriesDto;
 import com.bill.dropdowns.dto.DepartmentsDto;
 import com.bill.dropdowns.dto.ExpensesDto;
+import com.bill.dropdowns.dto.ItemsDto;
 import com.bill.dropdowns.dto.LocationsDto;
 import com.bill.dropdowns.dto.SubBrandsDto;
 import com.bill.dropdowns.dto.SubCategories1Dto;
@@ -27,6 +29,7 @@ import com.bill.dropdowns.repository.BrandsRepo;
 import com.bill.dropdowns.repository.CategoriesRepo;
 import com.bill.dropdowns.repository.DepartmentRepo;
 import com.bill.dropdowns.repository.ExpensesRepo;
+import com.bill.dropdowns.repository.ItemsRepo;
 import com.bill.dropdowns.repository.LocationRepo;
 import com.bill.dropdowns.repository.SubBrandRepo;
 import com.bill.dropdowns.repository.SubCategories1Repo;
@@ -65,6 +68,9 @@ public class DropdownServiceImpl implements DropdownService {
 
 	@Autowired
 	private SubBrandRepo subBrandRepo;
+	
+	@Autowired
+	private ItemsRepo itemsRepo;
 
 	@Override
 	public List<BrandsEntity> getAllBrands() {
@@ -105,6 +111,11 @@ public class DropdownServiceImpl implements DropdownService {
 	@Override
 	public List<SubCategories2Entity> getAllSubCategories2() {
 		return subCategories2Repo.findAll();
+	}
+	
+	@Override
+	public List<ItemsEntity> getItems() {
+		return itemsRepo.findAll();
 	}
 
 	@Override
@@ -259,6 +270,16 @@ public class DropdownServiceImpl implements DropdownService {
 	public List<BrandsEntity> saveSubBrandWithBrand(List<BrandsEntity> brandEntity) {
 		brandsRepo.saveAll(brandEntity);
 		return brandEntity;
+	}
+
+	@Override
+	public ItemsEntity saveItems(ItemsDto itemsDto) {
+		ItemsEntity items = new ItemsEntity();
+		BeanUtils.copyProperties(itemsDto, items);
+
+		itemsRepo.save(items);
+		log.info("Add items with this  id: " + items.getId());
+		return items;
 	}
 
 }
