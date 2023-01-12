@@ -11,7 +11,7 @@ public class UserUpdateDto {
 	
 	private String paidAmount;
 
-	private String paymentDate;
+	private String reimbursementDate;
 
 	private String paymentStatus;
 
