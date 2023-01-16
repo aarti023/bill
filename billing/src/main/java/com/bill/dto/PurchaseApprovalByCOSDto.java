@@ -13,7 +13,7 @@ public class PurchaseApprovalByCOSDto {
 
 	private String finalApproval;
 
-	private Date finalApprovalDate;
+	private String finalApprovalDate;
 
 	private String finalRemarks;
 }

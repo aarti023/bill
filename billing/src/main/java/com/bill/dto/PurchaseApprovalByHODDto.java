@@ -13,7 +13,7 @@ public class PurchaseApprovalByHODDto {
 	
 	private String hodApproval;
 
-	private Date hodAapprovalDate;
+	private String hodAapprovalDate;
 
 	private String hodRemarks;
 }

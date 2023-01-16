@@ -1,7 +1,5 @@
 package com.bill.dto;
 
-import java.util.Date;
-
 import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +18,7 @@ public class PurchaseApprovalDto {
 
 	private String email;
 
-	private Date submissionDate;
+	private String submissionDate;
 
 	private String reportingManager;
 
@@ -38,25 +36,25 @@ public class PurchaseApprovalDto {
 
 	private String provisionAmount;
 
-	private String paymentTerms;
-
-	private String paymentMethod;
-
-	private Date purchaseDate;
+	private String purchaseDate;
 
 	private String hodApproval;
 
-	private Date hodAapprovalDate;
+	private String hodAapprovalDate;
 
 	private String hodRemarks;
 
 	private String finalApproval;
 
-	private Date finalApprovalDate;
+	private String finalApprovalDate;
 
 	private String finalRemarks;
 	
 	private UserType userType;
 	
 	private String approvalId;
+	
+	private String approvalRemarks;
+	
+	private String reasonOfPurchase;
 }

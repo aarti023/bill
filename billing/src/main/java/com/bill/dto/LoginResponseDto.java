@@ -1,5 +1,7 @@
 package com.bill.dto;
 
+import java.time.LocalDateTime;
+
 import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,8 @@ public class LoginResponseDto {
 	private UserType userType;
 	
 	private String ReportingManager;
+	
+	private LocalDateTime submissionDate;
 	
 
 }

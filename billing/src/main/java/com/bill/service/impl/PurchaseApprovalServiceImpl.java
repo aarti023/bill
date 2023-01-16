@@ -72,9 +72,9 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 	@Override
 	public PurchaseApprovalByCOSDto updatePurchasingApprovalByCOS(String approvalId, PurchaseApprovalByCOSDto purchaseApprovalByCOSDto) {
 		PurchaseApprovalEntity approval = purchaseApprovalRepo.findByApprovalId(approvalId);
-		approval.setHodAapprovalDate(purchaseApprovalByCOSDto.getFinalApprovalDate());
-		approval.setHodApproval(purchaseApprovalByCOSDto.getFinalApproval());
-		approval.setHodRemarks(purchaseApprovalByCOSDto.getFinalRemarks());
+		approval.setFinalApprovalDate(purchaseApprovalByCOSDto.getFinalApprovalDate());
+		approval.setFinalApproval(purchaseApprovalByCOSDto.getFinalApproval());
+		approval.setFinalRemarks(purchaseApprovalByCOSDto.getFinalRemarks());
 		purchaseApprovalRepo.save(approval);
 		return purchaseApprovalByCOSDto;
 	}
