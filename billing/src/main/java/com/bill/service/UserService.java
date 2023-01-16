@@ -3,6 +3,7 @@ package com.bill.service;
 import java.util.List;
 
 import com.bill.dto.EmployeeCodeDto;
+import com.bill.dto.InvoiceStatusUpdateDto;
 import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
 import com.bill.dto.UserUpdateDto;
@@ -27,5 +28,9 @@ public interface UserService {
 	UserUpdateDto updateUser(String invoiceId,UserUpdateDto userUpdateDto);
 
 	List<UserEntity> getDataByEmployeeCode(String employeeCode);
+
+	List<UserEntity> getDataReportingManagerId(String reportingManagerId);
+
+	InvoiceStatusUpdateDto updateInvoiceStatus(String invoiceId, InvoiceStatusUpdateDto invoiceStatusUpdateDto);
 
 }

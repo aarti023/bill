@@ -86,4 +86,8 @@ public class UserDto {
 	private String transactionDetail;
 
 	private String reimbursementDate;
+	
+	private String reportingManagerId;
+	
+	private String invoiceStatus;
 }

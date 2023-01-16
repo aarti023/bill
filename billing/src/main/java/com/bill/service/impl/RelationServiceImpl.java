@@ -1,7 +1,9 @@
 package com.bill.service.impl;
 
 import java.security.SecureRandom;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,24 @@ public class RelationServiceImpl implements RelationService {
 
 	@Autowired
 	private RelationsRepo relationsRepo;
+	
+	@Override
+	public String getGenrateReportingManagerId(String reportingManagerId) {
 
+		if (Objects.nonNull(reportingManagerId)) {
+			return reportingManagerId;
+		}
+		Random random1 = new Random(System.nanoTime() % 10000000);
+		
+		reportingManagerId = "RM" + String.format("%09d", random1.nextInt(10000000));
+			
+		return reportingManagerId;
+	}
 	@Override
 	public RelationsEntity saveRelations(RelationDto relationDto) {
 		RelationsEntity relation = new RelationsEntity();
 		BeanUtils.copyProperties(relationDto, relation);
+		relation.setReportingManagerId(getGenrateReportingManagerId(relationDto.getReportingManagerId()));
 		relation.setPassword(generatePassword(relationDto.getEmployeeCode()));
 		relationsRepo.save(relation);
 		return relation;

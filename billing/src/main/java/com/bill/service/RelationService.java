@@ -9,6 +9,8 @@ public interface RelationService {
 	public RelationsEntity saveRelations(RelationDto relationDto);
 
 	public LoginDto forgetPassword(String email, String employeeCode);
+
+	String getGenrateReportingManagerId(String reportingManagerId);
 		
 
 }

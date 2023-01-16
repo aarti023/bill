@@ -21,4 +21,7 @@ public class UserUpdateDto {
 	
 	private String updatedAt;
 	
+	private String invoiceStatus;
+	
+	
 }
