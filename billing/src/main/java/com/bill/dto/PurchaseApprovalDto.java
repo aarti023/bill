@@ -2,6 +2,8 @@ package com.bill.dto;
 
 import java.util.Date;
 
+import com.bill.enums.UserType;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -53,4 +55,6 @@ public class PurchaseApprovalDto {
 	private Date finalApprovalDate;
 
 	private String finalRemarks;
+	
+	private UserType userType;
 }
