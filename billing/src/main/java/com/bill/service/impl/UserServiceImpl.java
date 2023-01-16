@@ -46,13 +46,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public EmployeeCodeDto getNameAndEmailByEmployeeCode(String employeeCode) {
-		UserEntity user = userRepo.findByEmployeeCode(employeeCode);
-		EmployeeCodeDto employeeCodeDto = new EmployeeCodeDto();
-		employeeCodeDto.setEmail(user.getEmail());
-		employeeCodeDto.setEmployeeName(user.getEmployeeName());
-		employeeCodeDto.setReportingManager(user.getReportingManager());
-		
-		return employeeCodeDto;
+//		UserEntity user = userRepo.findByEmployeeCode(employeeCode);
+//		EmployeeCodeDto employeeCodeDto = new EmployeeCodeDto();
+//		employeeCodeDto.setEmail(user.getEmail());
+//		employeeCodeDto.setEmployeeName(user.getEmployeeName());
+//		employeeCodeDto.setReportingManager(user.getReportingManager());
+//		
+//		return employeeCodeDto;
+		return null;
 
 	}
 
@@ -196,6 +197,13 @@ public class UserServiceImpl implements UserService {
 		userRepo.save(user);
 		return userUpdateDto;
 		
+	}
+
+
+	@Override
+	public List<UserEntity> getDataByEmployeeCode(String employeeCode) {
+		List<UserEntity> user = userRepo.findByEmployeeCode(employeeCode);
+		return user;
 	}
 	
 }

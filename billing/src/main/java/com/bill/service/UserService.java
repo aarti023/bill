@@ -26,4 +26,6 @@ public interface UserService {
 
 	UserUpdateDto updateUser(String invoiceId,UserUpdateDto userUpdateDto);
 
+	List<UserEntity> getDataByEmployeeCode(String employeeCode);
+
 }
