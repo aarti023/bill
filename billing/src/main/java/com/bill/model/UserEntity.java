@@ -152,5 +152,11 @@ public class UserEntity{
 	
 	@Column(name = "reimbursement_date", columnDefinition = "varchar(256)")
 	private String reimbursementDate;
+	
+	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
+	private String reportingManagerId;
+
+	@Column(name = "invoice_status", columnDefinition = "varchar(256)")
+	private String invoiceStatus;
 
 }

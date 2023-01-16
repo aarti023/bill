@@ -21,4 +21,6 @@ public interface UserRepo extends JpaRepository<UserEntity, Long> {
 	public UserEntity findByInvoiceId(String invoiceId);
 
 	public List<UserEntity> findByEmployeeCode(String employeeCode);
+
+	public List<UserEntity> findByReportingManagerId(String reportingManagerId);
 }
