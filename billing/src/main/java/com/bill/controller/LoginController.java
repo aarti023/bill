@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bill.dto.LoginDto;
 import com.bill.dto.LoginResponseDto;
 import com.bill.dto.ResponseDto;
-import com.bill.dto.UserDto;
-import com.bill.model.LoginEntity;
-import com.bill.model.UserEntity;
 import com.bill.service.LoginService;
 
 import io.swagger.annotations.ApiOperation;

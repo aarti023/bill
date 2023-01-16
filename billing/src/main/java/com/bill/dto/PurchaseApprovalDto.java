@@ -57,4 +57,6 @@ public class PurchaseApprovalDto {
 	private String finalRemarks;
 	
 	private UserType userType;
+	
+	private String approvalId;
 }

@@ -35,6 +35,9 @@ public class PurchaseApprovalEntity {
 	@Column(name = "id")
 	private Long id;
 	
+	@Column(name = "approval_id", columnDefinition = "varchar(256)")
+	private String approvalId;
+	
 	@Column(name = "employee_code", columnDefinition = "varchar(256)")
 	private String employeeCode;
 	

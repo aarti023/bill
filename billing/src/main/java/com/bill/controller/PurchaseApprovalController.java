@@ -1,15 +1,21 @@
 package com.bill.controller;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bill.dto.PurchaseApprovalByCOSDto;
+import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
 import com.bill.dto.ResponseDto;
 import com.bill.model.PurchaseApprovalEntity;
@@ -54,6 +60,47 @@ public class PurchaseApprovalController {
 					.failure("Exception occurred while getting the data of Purchase Approval" + errorException);
 
 		}
-
 	}
+	
+	@GetMapping("get/data/purchase/approval/employeeCode")
+	@ApiOperation("get purchasing data by employee code")
+	public ResponseDto<List<PurchaseApprovalEntity>> getDataPurchaseApprovalByEmployeecode(@RequestParam(name = "employeeCode") String employeeCode){
+		try {
+			log.info("purchase approval data {}",employeeCode);
+			List<PurchaseApprovalEntity> response = purchaseApprovalServiceImpl.getDataByEmployeeCode(employeeCode);
+			return ResponseDto.success("get Data successfully with employee code ",response);
+			
+		}catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data of Purchase Approval by employee code "+errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data of Purchase Approval by employee code "+errorMessage);
+		}
+	}
+	
+	@PutMapping("/update/hod")
+	@ApiOperation("update details by hod")
+	public ResponseDto<PurchaseApprovalByHODDto> updateDetailByHOD(@RequestParam(name = "approvalId") String approvalId, @RequestBody PurchaseApprovalByHODDto purchaseApprovalByHODDto ) {
+		try {
+			log.info("user {}", approvalId);
+			PurchaseApprovalByHODDto response = purchaseApprovalServiceImpl.updatePurchasingApprovalByHOD(approvalId, purchaseApprovalByHODDto);
+			return ResponseDto.success("purchase Approval details update successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while saving the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while updating the purchase Approval data " + errorMessage);
+		}
+	}
+	
+	@PutMapping("/update/cos")
+	@ApiOperation("update details by COS")
+	public ResponseDto<PurchaseApprovalByCOSDto> updateDetailByCOS(@RequestParam(name = "approvalId") String approvalId, @RequestBody PurchaseApprovalByCOSDto purchaseApprovalByCOSDto ) {
+		try {
+			log.info("user {}", approvalId);
+			PurchaseApprovalByCOSDto response = purchaseApprovalServiceImpl.updatePurchasingApprovalByCOS(approvalId, purchaseApprovalByCOSDto);
+			return ResponseDto.success("purchase Approval details update successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while saving the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while updating the purchase Approval data " + errorMessage);
+		}
+	}
+	
 }
+
