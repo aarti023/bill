@@ -52,4 +52,10 @@ public class RelationsEntity {
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
 
+	@Column(name = "submission_date", columnDefinition = "varchar(256)")
+	public String submissionDate;
+	
+	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
+	private String reportingManagerId;
+
 }

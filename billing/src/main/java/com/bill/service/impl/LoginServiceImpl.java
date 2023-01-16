@@ -51,6 +51,7 @@ public class LoginServiceImpl implements LoginService {
 				loginResponseDto.setUserType(relationEntity.getUserType());
 				loginResponseDto.setEmployeeCode(relationEntity.getEmployeeCode());
 				loginResponseDto.setReportingManager(relationEntity.getReportingManager());
+				loginResponseDto.setSubmissionDate(relationEntity.getSubmissionDate());
 				return loginResponseDto;
 
 			}

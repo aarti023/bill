@@ -21,4 +21,6 @@ public class RelationDto {
 	
 	private String reportingManager;
 	
+	private String reportingManagerId;
+	
 }

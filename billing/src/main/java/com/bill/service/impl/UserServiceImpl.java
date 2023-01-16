@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
 import com.bill.dto.EmployeeCodeDto;
+import com.bill.dto.InvoiceStatusUpdateDto;
 import com.bill.dto.MergeAllTableDto;
 import com.bill.dto.UserDto;
 import com.bill.dto.UserUpdateDto;
@@ -194,15 +195,30 @@ public class UserServiceImpl implements UserService {
 		user.setTransactionDetail(userUpdateDto.getTransactionDetail());
 		user.setUpdatedAt(userUpdateDto.getUpdatedAt());
 		user.setUpdatedBy(userUpdateDto.getUpdatedBy());
+		user.setInvoiceStatus(userUpdateDto.getInvoiceStatus());
 		userRepo.save(user);
 		return userUpdateDto;
 		
+	}
+	@Override
+	public InvoiceStatusUpdateDto updateInvoiceStatus(String invoiceId, InvoiceStatusUpdateDto invoiceStatusUpdateDto) {
+		UserEntity user = userRepo.findByInvoiceId(invoiceId);
+		user.setInvoiceStatus(invoiceStatusUpdateDto.getInvoiceStatus());
+		userRepo.save(user);
+		return invoiceStatusUpdateDto;
 	}
 
 
 	@Override
 	public List<UserEntity> getDataByEmployeeCode(String employeeCode) {
 		List<UserEntity> user = userRepo.findByEmployeeCode(employeeCode);
+		return user;
+	}
+
+
+	@Override
+	public List<UserEntity> getDataReportingManagerId(String reportingManagerId) {
+		List<UserEntity> user = userRepo.findByReportingManagerId(reportingManagerId);
 		return user;
 	}
 	
