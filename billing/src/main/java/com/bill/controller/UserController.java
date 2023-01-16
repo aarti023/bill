@@ -71,7 +71,7 @@ public class UserController {
 		}
 	}
 
-	@PutMapping("/update/invoiceStatus{invoiceId}")
+	@PutMapping("/update/invoiceStatus/{invoiceId}")
 	@ApiOperation("update reason")
 	public ResponseDto<InvoiceStatusUpdateDto> updateInvoiceStatus(@PathVariable("invoiceId") String invoiceId,
 			@RequestBody InvoiceStatusUpdateDto invoiceStatusUpdateDto) {
