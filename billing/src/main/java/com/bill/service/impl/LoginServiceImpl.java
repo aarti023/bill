@@ -34,16 +34,16 @@ public class LoginServiceImpl implements LoginService {
 				throw new LoginResponseException("This user already logged in");
 			} else {
 				RelationsEntity relationEntity = relation.get();
-				LoginEntity login = new LoginEntity();
-				login.setEmail(relationEntity.getEmail());
-				login.setEmployeeCode(relationEntity.getEmployeeCode());
-				login.setEmployeeName(relationEntity.getEmployeeName());
-				login.setStatus(true);
-				login.setPassword(relationEntity.getPassword());
-				login.setUserType(relationEntity.getUserType());
-				login.setReportingManager(relationEntity.getReportingManager());
-	
-				LoginEntity loginEntity = loginRepo.save(login);
+//				LoginEntity login = new LoginEntity();
+//				login.setEmail(relationEntity.getEmail());
+//				login.setEmployeeCode(relationEntity.getEmployeeCode());
+//				login.setEmployeeName(relationEntity.getEmployeeName());
+//				login.setStatus(true);
+//				login.setPassword(relationEntity.getPassword());
+//				login.setUserType(relationEntity.getUserType());
+//				login.setReportingManager(relationEntity.getReportingManager());
+//	
+//				LoginEntity loginEntity = loginRepo.save(login);
 				LoginResponseDto loginResponseDto = new LoginResponseDto();
 				loginResponseDto.setEmail(relationEntity.getEmail());
 				loginResponseDto.setStatus(true);
@@ -67,11 +67,11 @@ public class LoginServiceImpl implements LoginService {
 			Optional<LoginEntity> loginEntitiy = loginRepo.findOneByEmployeeCodeAndEmail(employeeCode, email);
 			if (loginEntitiy.isPresent()) {
 				loginRepo.delete(loginEntitiy.get());
-				return "loged out";
+				return "logged out successfully";
 			}
-			throw new LoginResponseException("Login first");
+			throw new LoginResponseException("Please Login first");
 		}
-		throw new LoginResponseException("not valid");
+		throw new LoginResponseException("The user name or password is incorrect");
 	}
 
 }

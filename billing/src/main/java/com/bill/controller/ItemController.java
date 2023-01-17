@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bill.dto.ItemDto;
 import com.bill.dto.ResponseDto;
 import com.bill.model.ItemsEntity;
+import com.bill.model.UserEntity;
 import com.bill.service.ItemService;
 
 import io.swagger.annotations.ApiOperation;

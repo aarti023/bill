@@ -23,4 +23,6 @@ public class RelationDto {
 	
 	private String reportingManagerId;
 	
+	private String submissionDate;
+	
 }

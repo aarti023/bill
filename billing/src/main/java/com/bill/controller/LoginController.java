@@ -43,12 +43,12 @@ public class LoginController {
 	@ApiOperation("logout details")
 	public ResponseDto<String> logOut(@RequestParam("email") String email, @RequestParam("employeeCode") String employeeCode) {
 		try {
-			log.info("relation {}",email, employeeCode);
+			log.info("logout {}",email, employeeCode);
 			String response = loginService.logOut(email,employeeCode);
-			return ResponseDto.success("relation details saved successfully", response);
+			return ResponseDto.success("logout successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while relating the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while relating the data " + errorMessage);
+			return ResponseDto.failure("Exception occurred while logout the user " + errorMessage);
 		}
 	}
 	
