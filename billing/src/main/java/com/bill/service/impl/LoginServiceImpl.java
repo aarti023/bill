@@ -45,6 +45,7 @@ public class LoginServiceImpl implements LoginService {
 //	
 //				LoginEntity loginEntity = loginRepo.save(login);
 				LoginResponseDto loginResponseDto = new LoginResponseDto();
+				loginResponseDto.setReportingManagerId(relationEntity.getReportingManagerId());
 				loginResponseDto.setEmail(relationEntity.getEmail());
 				loginResponseDto.setStatus(true);
 				loginResponseDto.setEmployeeName(relationEntity.getEmployeeName());

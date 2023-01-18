@@ -19,6 +19,7 @@ import com.bill.dto.UserUpdateDto;
 import com.bill.enums.UserType;
 import com.bill.exception.ResourceNotFoundException;
 import com.bill.model.ItemsEntity;
+import com.bill.model.RelationsEntity;
 import com.bill.model.UserEntity;
 import com.bill.repository.ItemRepo;
 import com.bill.repository.UserRepo;
@@ -38,6 +39,8 @@ public class UserServiceImpl implements UserService {
 	
 	public UserEntity saveUser(UserDto userDto) {
 		userDto.setInvoiceId(getGenrateUserId(userDto.getUserType(), userDto.getInvoiceId()));
+		RelationsEntity relation = new RelationsEntity();
+		userDto.setReportingManagerId(relation.getReportingManagerId());
 		UserEntity user = new UserEntity();
 		BeanUtils.copyProperties(userDto, user);
 		userRepo.save(user);
