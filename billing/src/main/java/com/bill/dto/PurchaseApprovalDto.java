@@ -57,4 +57,7 @@ public class PurchaseApprovalDto {
 	private String approvalRemarks;
 	
 	private String reasonOfPurchase;
+	
+	private String paymentTags;
+
 }

@@ -107,4 +107,7 @@ public class PurchaseApprovalEntity {
 	@Column(name = "reason_of_purchase", columnDefinition = "varchar(256)")
 	private String reasonOfPurchase;
 
+	@Column(name = "payment_tags", columnDefinition = "varchar(256)")
+	private String paymentTags;
+
 }
