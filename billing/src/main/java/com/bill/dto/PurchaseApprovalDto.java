@@ -63,5 +63,21 @@ public class PurchaseApprovalDto {
 	private String reportingManagerId;
 	
 	private String highReportingManagerId;
+	
+	private String paymentMode;
+	
+	private String paymentMethod;
+	
+	private String urgentPaymentRemarks;
+	
+    private String paidAmount;
+	
+	private String rembursementPaymentDate;
+	
+	private String paymentStatus; 
+	
+	private String transactionDetails; 
+	
+	private String approveStatus;
 
 }

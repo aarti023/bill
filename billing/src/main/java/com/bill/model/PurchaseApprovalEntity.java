@@ -1,9 +1,5 @@
 package com.bill.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -109,11 +105,35 @@ public class PurchaseApprovalEntity {
 
 	@Column(name = "payment_tags", columnDefinition = "varchar(256)")
 	private String paymentTags;
-	
+
 	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
 	private String reportingManagerId;
-	
+
 	@Column(name = "high_reporting_manager_id", columnDefinition = "varchar(256)")
 	private String highReportingManagerId;
+
+	@Column(name = "payment_mode", columnDefinition = "varchar(256)")
+	private String paymentMode;
+
+	@Column(name = "payment_method", columnDefinition = "varchar(256)")
+	private String paymentMethod;
+	
+	@Column(name = "urgent_payment_remarks", columnDefinition = "varchar(256)")
+	private String urgentPaymentRemarks;
+
+	@Column(name = "paid_amount", columnDefinition = "varchar(256)")
+	private String paidAmount;
+
+	@Column(name = "rembursement_payment_date", columnDefinition = "varchar(256)")
+	private String rembursementPaymentDate;
+
+	@Column(name = "payment_status", columnDefinition = "varchar(256)")
+	private String paymentStatus;
+
+	@Column(name = "transaction_details", columnDefinition = "varchar(256)")
+	private String transactionDetails;
+	
+	@Column(name = "approve_status", columnDefinition = "varchar(256)")
+	private String approveStatus;
 
 }

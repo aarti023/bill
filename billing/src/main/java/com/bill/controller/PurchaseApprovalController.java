@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bill.dto.InvoiceStatusUpdateDto;
+import com.bill.dto.PaymentUpdateDto;
 import com.bill.dto.PurchaseApprovalByCOSDto;
 import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
@@ -114,6 +116,20 @@ public class PurchaseApprovalController {
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the purchase details is {}", errorMessage);
 			return ResponseDto.failure("Exception occurred while getting the purchase details " + errorMessage);
+		}
+	}
+	
+	@PutMapping("/update/paymentStatus/{approvalId}")
+	@ApiOperation("update payment status")
+	public ResponseDto<PaymentUpdateDto> updateInvoiceStatus(@PathVariable("approvalId") String approvalId,
+			@RequestBody PaymentUpdateDto paymentUpdateDto) {
+		try {
+			log.info("user {}", approvalId);
+			PaymentUpdateDto response = purchaseApprovalServiceImpl.updatePayement(approvalId,paymentUpdateDto);
+			return ResponseDto.success("user details update successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while saving the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while updating the data " + errorMessage);
 		}
 	}
 	

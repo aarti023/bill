@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
+import com.bill.dto.PaymentUpdateDto;
 import com.bill.dto.PurchaseApprovalByCOSDto;
 import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
+import com.bill.dto.UserUpdateDto;
 import com.bill.enums.UserType;
 import com.bill.model.LoginEntity;
 import com.bill.model.PurchaseApprovalEntity;
@@ -131,5 +133,18 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 	public List<PurchaseApprovalEntity> getAprovalDataReportingManagerId(String reportingManagerId) {
 		List<PurchaseApprovalEntity> approval = purchaseApprovalRepo.findByReportingManagerId(reportingManagerId);
 		return approval;
+	}
+	
+	@Override
+	public PaymentUpdateDto updatePayement(String approvalId, PaymentUpdateDto paymentUpdateDto) {
+		
+		PurchaseApprovalEntity purchase = purchaseApprovalRepo.findByApprovalId(approvalId);
+		purchase.setPaidAmount(paymentUpdateDto.getPaidAmount());
+		purchase.setPaymentStatus(paymentUpdateDto.getPaymentStatus());
+		purchase.setRembursementPaymentDate(paymentUpdateDto.getReimbursementPaymentDate());
+		purchase.setTransactionDetails(paymentUpdateDto.getTransactionDetail());
+		purchaseApprovalRepo.save(purchase);
+		return paymentUpdateDto;
+		
 	}
 }
