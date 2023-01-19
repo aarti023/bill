@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.bill.dto.LoginDto;
 import com.bill.dto.RelationDto;
+import com.bill.enums.UserType;
 import com.bill.exception.LoginResponseException;
 import com.bill.model.RelationsEntity;
 import com.bill.repository.RelationsRepo;
@@ -24,21 +25,62 @@ public class RelationServiceImpl implements RelationService {
 	
 	@Override
 	public String getGenrateReportingManagerId(String reportingManagerId) {
-
-		if (Objects.nonNull(reportingManagerId)) {
-			return reportingManagerId;
-		}
-		Random random1 = new Random(System.nanoTime() % 10000000);
-		
-		reportingManagerId = "RM" + String.format("%09d", random1.nextInt(10000000));
-			
 		return reportingManagerId;
+//
+//		if (Objects.nonNull(reportingManagerId)) {
+//			return reportingManagerId;
+//		}
+//		Random random1 = new Random(System.nanoTime() % 10000000);
+//		
+//		reportingManagerId = "RM" + String.format("%09d", random1.nextInt(10000000));
+//			
+//		return reportingManagerId;
 	}
+	
+	@Override
+	public String getGenrateUserId(UserType userType, String id) {
+
+		if (Objects.nonNull(id)) {
+			return id;
+		}
+
+		Random random1 = new Random(System.nanoTime() % 10000000);
+		switch (userType) {
+
+		case ADMIN:
+			id = "A" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case USER:
+			id = "U" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case MANAGER:
+			id = "RM" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case FINANCE:
+			id = "F" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case COS:
+			id = "COS" + String.format("%09d", random1.nextInt(10000000));
+			break;
+
+		default:
+			id = null;
+			break;
+		}
+		return id;
+	}
+
 	@Override
 	public RelationsEntity saveRelations(RelationDto relationDto) {
 		RelationsEntity relation = new RelationsEntity();
 		BeanUtils.copyProperties(relationDto, relation);
-		relation.setReportingManagerId(getGenrateReportingManagerId(relationDto.getReportingManagerId()));
+//		relation.setReportingManagerId(getGenrateReportingManagerId(relationDto.getReportingManagerId()));
+		relation.setReportingManagerId(getGenrateUserId(relationDto.getUserType(),relationDto.getReportingManagerId()));
+		relation.setHighReportingManagerId(getGenrateUserId(relationDto.getUserType(), relationDto.getHighReportingManagerId()));
 		relation.setPassword(generatePassword(relationDto.getEmployeeCode()));
 		relationsRepo.save(relation);
 		return relation;

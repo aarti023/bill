@@ -155,6 +155,9 @@ public class UserEntity{
 	
 	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
 	private String reportingManagerId;
+	
+	@Column(name = "high_reporting_manager_id", columnDefinition = "varchar(256)")
+	private String highReportingManagerId;
 
 	@Column(name = "invoice_status", columnDefinition = "varchar(256)")
 	private String invoiceStatus;

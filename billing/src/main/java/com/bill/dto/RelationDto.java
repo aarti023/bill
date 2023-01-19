@@ -25,4 +25,6 @@ public class RelationDto {
 	
 	private String submissionDate;
 	
+	private String highReportingManagerId;
+	
 }

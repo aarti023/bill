@@ -112,5 +112,8 @@ public class PurchaseApprovalEntity {
 	
 	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
 	private String reportingManagerId;
+	
+	@Column(name = "high_reporting_manager_id", columnDefinition = "varchar(256)")
+	private String highReportingManagerId;
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.server.NotAcceptableStatusException;
 import com.bill.dto.PurchaseApprovalByCOSDto;
 import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
+import com.bill.enums.UserType;
 import com.bill.model.LoginEntity;
 import com.bill.model.PurchaseApprovalEntity;
 import com.bill.model.RelationsEntity;
@@ -25,8 +26,9 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 	@Autowired
 	private PurchaseApprovalRepo purchaseApprovalRepo;
 	
-	@Override
+//	@Override
 	public String getGenrateUserId(String approvalId) {
+//		
 
 		if (Objects.nonNull(approvalId)) {
 			return approvalId;
@@ -38,13 +40,54 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 			
 		return approvalId;
 	}
+	
+	@Override
+	public String getGenrateUserId(UserType userType, String id) {
+
+		if (Objects.nonNull(id)) {
+			return id;
+		}
+
+		Random random1 = new Random(System.nanoTime() % 10000000);
+		switch (userType) {
+
+		case ADMIN:
+			id = "A" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case USER:
+			id = "U" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case MANAGER:
+			id = "RM" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case FINANCE:
+			id = "F" + String.format("%09d", random1.nextInt(10000000));
+			break;
+			
+		case COS:
+			id = "COS" + String.format("%09d", random1.nextInt(10000000));
+			break;
+
+		default:
+			id = null;
+			break;
+		}
+		return id;
+	}
+
 
 	@Override
 	public PurchaseApprovalEntity savePurchase(PurchaseApprovalDto purchaseApprovalDto) {
 		PurchaseApprovalEntity approvalEntity = new PurchaseApprovalEntity();
 		LoginEntity login = new LoginEntity();
 		approvalEntity.setReportingManagerId(login.getReportingManagerId());
+//		purchaseApprovalDto.setApprovalId(getGenrateUserId(purchaseApprovalDto.getApprovalId()));
 		purchaseApprovalDto.setApprovalId(getGenrateUserId(purchaseApprovalDto.getApprovalId()));
+		purchaseApprovalDto.setReportingManagerId(getGenrateUserId(purchaseApprovalDto.getReportingManagerId()));
+		purchaseApprovalDto.setHighReportingManagerId(getGenrateUserId(purchaseApprovalDto.getHighReportingManagerId()));
 		BeanUtils.copyProperties(purchaseApprovalDto, approvalEntity);
 		purchaseApprovalRepo.save(approvalEntity);
 		return approvalEntity;

@@ -43,9 +43,12 @@ public class LoginServiceImpl implements LoginService {
 				login.setUserType(relationEntity.getUserType());
 				login.setReportingManager(relationEntity.getReportingManager());
 				login.setReportingManagerId(relationEntity.getReportingManagerId());
+				login.setHighReportingManagerId(relationEntity.getHighReportingManagerId());
 				LoginEntity loginEntity = loginRepo.save(login);
+				
 				LoginResponseDto loginResponseDto = new LoginResponseDto();
 				loginResponseDto.setReportingManagerId(relationEntity.getReportingManagerId());
+				loginResponseDto.setHighReportingManagerId(relationEntity.getHighReportingManagerId());
 				loginResponseDto.setEmail(relationEntity.getEmail());
 				loginResponseDto.setStatus(true);
 				loginResponseDto.setEmployeeName(relationEntity.getEmployeeName());

@@ -5,6 +5,7 @@ import java.util.List;
 import com.bill.dto.PurchaseApprovalByCOSDto;
 import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
+import com.bill.enums.UserType;
 import com.bill.model.PurchaseApprovalEntity;
 
 public interface PurchaseApprovalService {
@@ -16,7 +17,7 @@ public interface PurchaseApprovalService {
 	List<PurchaseApprovalEntity> getDataByEmployeeCode(String employeeCode);
 
 
-	String getGenrateUserId(String approvalId);
+//	String getGenrateUserId(String approvalId);
 
 	PurchaseApprovalByCOSDto updatePurchasingApprovalByCOS(String approvalId,
 			PurchaseApprovalByCOSDto purchaseApprovalByCOSDto);
@@ -25,5 +26,7 @@ public interface PurchaseApprovalService {
 			PurchaseApprovalByHODDto purchaseApprovalByHODDto);
 
 	List<PurchaseApprovalEntity> getAprovalDataReportingManagerId(String reportingManagerId);
+
+	String getGenrateUserId(UserType userType, String id);
 
 }

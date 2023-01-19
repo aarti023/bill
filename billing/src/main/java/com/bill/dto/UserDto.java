@@ -90,4 +90,6 @@ public class UserDto {
 	private String reportingManagerId;
 	
 	private String invoiceStatus;
+	
+	private String highReportingManagerId;
 }

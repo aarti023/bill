@@ -26,5 +26,7 @@ public class LoginResponseDto {
 	private String submissionDate;
 
 	private String reportingManagerId;
+	
+	private String highReportingManagerId;
 
 }
