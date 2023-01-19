@@ -54,6 +54,9 @@ public class LoginEntity{
 	@Enumerated(EnumType.STRING)
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
+	
+	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
+	private String reportingManagerId;
 
 	
 }

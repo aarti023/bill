@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
 import com.bill.dto.ResponseDto;
 import com.bill.model.PurchaseApprovalEntity;
+import com.bill.model.UserEntity;
 import com.bill.service.impl.PurchaseApprovalServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
@@ -99,6 +101,19 @@ public class PurchaseApprovalController {
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while saving the data is {}", errorMessage);
 			return ResponseDto.failure("Exception occurred while updating the purchase Approval data " + errorMessage);
+		}
+	}
+	
+	@GetMapping("/get/purchase/reportingManager/{reportingManagerId}")
+	@ApiOperation("get purchase details by Reporting Manager Id")
+	public ResponseDto<List<PurchaseApprovalEntity>> getPurchaseDetailByReportingManagerId(@PathVariable("reportingManagerId") String reportingManagerId) {
+		try {
+			log.info("user {}", reportingManagerId);
+			List<PurchaseApprovalEntity> response = purchaseApprovalServiceImpl.getAprovalDataReportingManagerId(reportingManagerId);
+			return ResponseDto.success("user details get successfully by Reporting ManagerId", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the purchase details is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the purchase details " + errorMessage);
 		}
 	}
 	

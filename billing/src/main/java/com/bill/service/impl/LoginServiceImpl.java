@@ -34,16 +34,16 @@ public class LoginServiceImpl implements LoginService {
 				throw new LoginResponseException("This user already logged in");
 			} else {
 				RelationsEntity relationEntity = relation.get();
-//				LoginEntity login = new LoginEntity();
-//				login.setEmail(relationEntity.getEmail());
-//				login.setEmployeeCode(relationEntity.getEmployeeCode());
-//				login.setEmployeeName(relationEntity.getEmployeeName());
-//				login.setStatus(true);
-//				login.setPassword(relationEntity.getPassword());
-//				login.setUserType(relationEntity.getUserType());
-//				login.setReportingManager(relationEntity.getReportingManager());
-//	
-//				LoginEntity loginEntity = loginRepo.save(login);
+				LoginEntity login = new LoginEntity();
+				login.setEmail(relationEntity.getEmail());
+				login.setEmployeeCode(relationEntity.getEmployeeCode());
+				login.setEmployeeName(relationEntity.getEmployeeName());
+				login.setStatus(true);
+				login.setPassword(relationEntity.getPassword());
+				login.setUserType(relationEntity.getUserType());
+				login.setReportingManager(relationEntity.getReportingManager());
+				login.setReportingManagerId(relationEntity.getReportingManagerId());
+				LoginEntity loginEntity = loginRepo.save(login);
 				LoginResponseDto loginResponseDto = new LoginResponseDto();
 				loginResponseDto.setReportingManagerId(relationEntity.getReportingManagerId());
 				loginResponseDto.setEmail(relationEntity.getEmail());

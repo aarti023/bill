@@ -12,7 +12,10 @@ import org.springframework.web.server.NotAcceptableStatusException;
 import com.bill.dto.PurchaseApprovalByCOSDto;
 import com.bill.dto.PurchaseApprovalByHODDto;
 import com.bill.dto.PurchaseApprovalDto;
+import com.bill.model.LoginEntity;
 import com.bill.model.PurchaseApprovalEntity;
+import com.bill.model.RelationsEntity;
+import com.bill.model.UserEntity;
 import com.bill.repository.PurchaseApprovalRepo;
 import com.bill.service.PurchaseApprovalService;
 
@@ -31,7 +34,7 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 
 		Random random1 = new Random(System.nanoTime() % 10000000);
 		
-		approvalId = "Aprov" + String.format("%09d", random1.nextInt(10000000));
+		approvalId = "AP" + String.format("%09d", random1.nextInt(10000000));
 			
 		return approvalId;
 	}
@@ -39,6 +42,8 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 	@Override
 	public PurchaseApprovalEntity savePurchase(PurchaseApprovalDto purchaseApprovalDto) {
 		PurchaseApprovalEntity approvalEntity = new PurchaseApprovalEntity();
+		LoginEntity login = new LoginEntity();
+		approvalEntity.setReportingManagerId(login.getReportingManagerId());
 		purchaseApprovalDto.setApprovalId(getGenrateUserId(purchaseApprovalDto.getApprovalId()));
 		BeanUtils.copyProperties(purchaseApprovalDto, approvalEntity);
 		purchaseApprovalRepo.save(approvalEntity);
@@ -77,5 +82,11 @@ public class PurchaseApprovalServiceImpl implements PurchaseApprovalService {
 		approval.setFinalRemarks(purchaseApprovalByCOSDto.getFinalRemarks());
 		purchaseApprovalRepo.save(approval);
 		return purchaseApprovalByCOSDto;
+	}
+	
+	@Override
+	public List<PurchaseApprovalEntity> getAprovalDataReportingManagerId(String reportingManagerId) {
+		List<PurchaseApprovalEntity> approval = purchaseApprovalRepo.findByReportingManagerId(reportingManagerId);
+		return approval;
 	}
 }

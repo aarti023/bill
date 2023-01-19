@@ -24,4 +24,6 @@ public interface PurchaseApprovalService {
 	PurchaseApprovalByHODDto updatePurchasingApprovalByHOD(String approvalId,
 			PurchaseApprovalByHODDto purchaseApprovalByHODDto);
 
+	List<PurchaseApprovalEntity> getAprovalDataReportingManagerId(String reportingManagerId);
+
 }

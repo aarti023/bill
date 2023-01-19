@@ -14,4 +14,6 @@ public interface PurchaseApprovalRepo extends JpaRepository<PurchaseApprovalEnti
 
 	PurchaseApprovalEntity findByApprovalId(String approvalId);
 
+	List<PurchaseApprovalEntity> findByReportingManagerId(String reportingManagerId);
+
 }

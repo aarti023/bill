@@ -59,5 +59,7 @@ public class PurchaseApprovalDto {
 	private String reasonOfPurchase;
 	
 	private String paymentTags;
+	
+	private String reportingManagerId;
 
 }

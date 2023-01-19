@@ -109,5 +109,8 @@ public class PurchaseApprovalEntity {
 
 	@Column(name = "payment_tags", columnDefinition = "varchar(256)")
 	private String paymentTags;
+	
+	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
+	private String reportingManagerId;
 
 }
