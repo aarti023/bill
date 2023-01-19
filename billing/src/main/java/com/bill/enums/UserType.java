@@ -8,7 +8,10 @@ import lombok.Getter;
 public enum UserType {
 	
 	USER("user"),
-	ADMIN("admin");
+	ADMIN("admin"),
+	COS("chief of staff"),
+	MANAGER("manager"),
+	FINANCE("finance");
 	
 	public String name;
 	
