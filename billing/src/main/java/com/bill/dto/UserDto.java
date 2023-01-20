@@ -100,5 +100,7 @@ public class UserDto {
 	private String invoiceStatus;
 
 	private String highReportingManagerId;
+	
+	private String approvalId;
 
 }

@@ -162,12 +162,14 @@ public class UserEntity{
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
 	
-	
 	@Column(name = "task_id", columnDefinition = "varchar(50)")
 	private String taskId;
 	
 	@Column(name = "utr", columnDefinition = "varchar(50)")
 	private String utr;
+	
+	@Column(name = "approval_id", columnDefinition = "varchar(256)")
+	private String approvalId;
 
 
 }
