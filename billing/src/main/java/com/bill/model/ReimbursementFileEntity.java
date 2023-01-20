@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import com.bill.enums.UserType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,13 +20,13 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @SuperBuilder
-@Table(name = "profile")
-@Entity(name = "profile")
-public class ProfileEntity {
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "reimbursement_file")
+@Entity(name = "reimbursement_file")
+public class ReimbursementFileEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -42,12 +44,11 @@ public class ProfileEntity {
 	@Lob
 	private byte[] data;
 
-	public ProfileEntity( String employeeCode, String fileName, String fileType, byte[] data) {
+	public ReimbursementFileEntity( String employeeCode, String fileName, String fileType, byte[] data) {
 		super();
 		this.employeeCode = employeeCode;
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.data = data;
-	}	
-
+	}
 }

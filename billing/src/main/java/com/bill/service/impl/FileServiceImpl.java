@@ -39,7 +39,8 @@ public class FileServiceImpl implements FileService {
 		FileEntity fileToSave = new FileEntity(fileName, fileExtension, data, invoice);
 		return dbFileRepository.save(fileToSave);
 	}
-
+	
+	
 	@Override
 	public Optional<FileEntity> getFile(String invoiceId) {
 //		FileEntity file = dbFileRepository.findByInvoiceId(invoiceId);
@@ -114,7 +115,7 @@ public class FileServiceImpl implements FileService {
 				try {
 					bImage2 = ImageIO.read(bis);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 				try {
@@ -125,11 +126,12 @@ public class FileServiceImpl implements FileService {
 					}
 
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
 		}
 		return null;
 	}
+
 }
