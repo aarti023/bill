@@ -11,22 +11,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDto {
 
-	private String employeeCode;
+	private String InvoiceType;
 
-	private String employeeName;
-
-	private String email;
+	private String paymentStatus;
 
 	private String invoiceNumber;
 
 	private String invoiceDate;
 
+	private String paymentDate;
+
+	private String utrMendatory;
+
 	private String brand;
 
 	private String subBrand;
 
+	private String customerName;
+
 	private String location;
 
+	private String expensesType;
+
+	private String expensesCategory;
+	
 	private String department;
 
 	private String category;
@@ -35,13 +43,21 @@ public class UserDto {
 
 	private String subCatagory2;
 
-	private String expensesType;
+	private String gstApplicable;
+
+	private String tdsApplicable;
 
 	private double preTaxAmount;
 
+	private String tdsPercentage;
+
+	private String tdsAmount;
+
+	private String gstAmount;
+
 	private double totalAmount;
 
-	private double gstAmount;
+	private String netAmount;
 
 	private String paymentMode;
 
@@ -49,15 +65,27 @@ public class UserDto {
 
 	private String payDirectCard;
 
-	private String expensesCategory;
-
 	private String partnerNameCode;
 
 	private String otherPartner;
 
 	private String invoiceDescription;
 
-	private String serviceCategory;
+	private String taskId;
+
+	private String utr;
+
+	private String employeeCode;
+
+	private String employeeName;
+
+	private String email;
+
+	private String paidAmount;
+
+	private String updatePaymentStatus;
+
+	private String transactionDetail;
 
 	private String reportingManager;
 
@@ -65,31 +93,12 @@ public class UserDto {
 
 	private UserType userType;
 
-	private String paymentCycle;
-
-	private String taskId;
-
-	private String utr;
-
-	private String paidAmount;
-
-	private String cgstAmount;
-
-	private String igstAmount;
-
-	private String sgstAmount;
-
-	private String paymentDate;
-
-	private String paymentStatus;
-
-	private String transactionDetail;
+	private String reportingManagerId;
 
 	private String reimbursementDate;
-	
-	private String reportingManagerId;
-	
+
 	private String invoiceStatus;
-	
+
 	private String highReportingManagerId;
+
 }

@@ -39,10 +39,6 @@ public class ItemDto {
 
 	private double sgst;
 
-	private double tds;
-
-	private double tdsAmount;
-
 	private String invoiceId;
 	
 	private String addNewItem;

@@ -32,65 +32,86 @@ public class UserEntity{
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "employee_code", columnDefinition = "varchar(256)")
-	private String employeeCode;
-
-	@Column(name = "employee_name", columnDefinition = "varchar(256)")
-	private String employeeName;
+	@Column(name = "invoice_type", columnDefinition = "varchar(256)")
+	private String InvoiceType;
 	
-	@Column(name = "email", columnDefinition = "varchar(256)")
-	private String email;
-
+	@Column(name = "payment_status", columnDefinition = "varchar(256)")	
+	private String paymentStatus;
+	
 	@Column(name = "invoice_number", columnDefinition = "varchar(256)")
 	private String invoiceNumber;
 
 	@Column(name = "invoice_date", columnDefinition = "varchar(256)")
 	private String invoiceDate;
 
+	@Column(name = "payment_date", columnDefinition = "varchar(256)")
+	private String paymentDate;
+
+	@Column(name = "utr_mendatory", columnDefinition = "varchar(256)")
+	private String utrMendatory;
+
 	@Column(name = "brand", columnDefinition = "varchar(256)")
 	private String brand;
 
 	@Column(name = "sub_brand", columnDefinition = "varchar(256)")
 	private String subBrand;
+	
+	@Column(name = "customer_name", columnDefinition = "varchar(256)")
+	private String customerName;
 
 	@Column(name = "location", columnDefinition = "varchar(256)")
 	private String location;
 
+	@Column(name = "expenses_type", columnDefinition = "varchar(256)")
+	private String expensesType;
+
+	@Column(name = "expenses_category", columnDefinition = "varchar(256)")
+	private String expensesCategory;
+	
 	@Column(name = "department", columnDefinition = "varchar(256)")
 	private String department;
 
 	@Column(name = "category", columnDefinition = "varchar(256)")
 	private String category;
 
-	@Column(name = "sub_catagory_1", columnDefinition = "varchar(256)")
+	@Column(name = "sub_catagory1", columnDefinition = "varchar(256)")
 	private String subCatagory1;
 
-	@Column(name = "sub_catagory_2", columnDefinition = "varchar(256)")
+	@Column(name = "sub_catagory2", columnDefinition = "varchar(256)")
 	private String subCatagory2;
 
-	@Column(name = "expenses_type", columnDefinition = "varchar(256)")
-	private String expensesType;
+	@Column(name = "gst_applicable", columnDefinition = "varchar(256)")
+	private String gstApplicable;
+	
+	@Column(name = "tds_applicable", columnDefinition = "varchar(256)")
+	private String tdsApplicable;
 
 	@Column(name = "pre_tax_amount", columnDefinition = "varchar(256)")
 	private double preTaxAmount;
 
+	@Column(name = "tds_percentage", columnDefinition = "varchar(256)")
+	private String tdsPercentage;
+
+	@Column(name = "tds_amount", columnDefinition = "varchar(256)")
+	private String tdsAmount;
+
+	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
+	private String gstAmount;
+
 	@Column(name = "total_amount", columnDefinition = "varchar(256)")
 	private double totalAmount;
 
-	@Column(name = "gst_amount", columnDefinition = "varchar(256)")
-	private double gstAmount;
+	@Column(name = "net_amount", columnDefinition = "varchar(256)")
+	private String netAmount;
 
-	@Column(name = "payment_Mode", columnDefinition = "varchar(256)")
+	@Column(name = "payment_mode", columnDefinition = "varchar(256)")
 	private String paymentMode;
 
 	@Column(name = "payment_method", columnDefinition = "varchar(256)")
 	private String paymentMethod;
 
-	@Column(name = "pay_direct_card_details", columnDefinition = "varchar(256)")
+	@Column(name = "pay_direct_card", columnDefinition = "varchar(256)")
 	private String payDirectCard;
-
-	@Column(name = "expenses_category", columnDefinition = "varchar(256)")
-	private String expensesCategory;
 
 	@Column(name = "partner_name_code", columnDefinition = "varchar(256)")
 	private String partnerNameCode;
@@ -101,11 +122,38 @@ public class UserEntity{
 	@Column(name = "invoice_description", columnDefinition = "varchar(256)")
 	private String invoiceDescription;
 
-	@Column(name = "service_category", columnDefinition = "varchar(256)")
-	private String serviceCategory;
+	@Column(name = "employee_code", columnDefinition = "varchar(256)")
+	private String employeeCode;
+
+	@Column(name = "employee_name", columnDefinition = "varchar(256)")
+	private String employeeName;
+
+	@Column(name = "email", columnDefinition = "varchar(256)")
+	private String email;
+
+	@Column(name = "paid_amount", columnDefinition = "varchar(256)")
+	private String paidAmount;
+
+	@Column(name = "update_payment_status", columnDefinition = "varchar(256)")
+	private String updatePaymentStatus;
+
+	@Column(name = "transaction_detail", columnDefinition = "varchar(256)")
+	private String transactionDetail;
 
 	@Column(name = "reporting_manager", columnDefinition = "varchar(256)")
 	private String reportingManager;
+
+	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
+	private String reportingManagerId;
+
+	@Column(name = "reimbursement_date", columnDefinition = "varchar(256)")
+	private String reimbursementDate;
+
+	@Column(name = "invoice_status", columnDefinition = "varchar(256)")
+	private String invoiceStatus;
+
+	@Column(name = "high_reportingManager_id", columnDefinition = "varchar(256)")
+	private String highReportingManagerId;
 	
 	@Column(name = "invoice_id", columnDefinition = "varchar(10)")
 	private String invoiceId;
@@ -114,52 +162,12 @@ public class UserEntity{
 	@Column(name = "user_type", columnDefinition = "varchar(50)")
 	private UserType userType;
 	
-	@Column(name = "payment_cycle", columnDefinition = "varchar(256)")
-	private String paymentCycle;
 	
 	@Column(name = "task_id", columnDefinition = "varchar(50)")
 	private String taskId;
 	
 	@Column(name = "utr", columnDefinition = "varchar(50)")
 	private String utr;
-	
-	@Column(name = "paid_amount", columnDefinition = "varchar(256)")
-	private String paidAmount;
-	
-	@Column(name = "payment_date", columnDefinition = "varchar(256)")
-	private String paymentDate;
-	
-	@Column(name = "payment_status", columnDefinition = "varchar(256)")
-	private String paymentStatus;
-	
-	@Column(name = "transaction_detail", columnDefinition = "varchar(256)")
-	private String transactionDetail;
 
-	@Column(name = "updated_by", columnDefinition = "varchar(256)")
-	private String updatedBy;
-
-	@Column(name = "updated_at", columnDefinition = "varchar(256)")
-	private String updatedAt;
-	
-	@Column(name = "cgst_amount", columnDefinition = "varchar(256)")
-	private String cgstAmount;
-	
-	@Column(name = "igst_amount", columnDefinition = "varchar(256)")
-	private String igstAmount;
-	
-	@Column(name = "sgst_amount", columnDefinition = "varchar(256)")
-	private String sgstAmount;
-	
-	@Column(name = "reimbursement_date", columnDefinition = "varchar(256)")
-	private String reimbursementDate;
-	
-	@Column(name = "reporting_manager_id", columnDefinition = "varchar(256)")
-	private String reportingManagerId;
-	
-	@Column(name = "high_reporting_manager_id", columnDefinition = "varchar(256)")
-	private String highReportingManagerId;
-
-	@Column(name = "invoice_status", columnDefinition = "varchar(256)")
-	private String invoiceStatus;
 
 }
