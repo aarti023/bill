@@ -1,5 +1,7 @@
 package com.bill.dto;
 
+import javax.persistence.Column;
+
 import com.bill.enums.UserType;
 
 import lombok.AllArgsConstructor;
@@ -52,4 +54,24 @@ public class ReimbursementDto {
 	private String highReportingManagerId;
 	
 	private String reimburseId;
+	
+	private String paidAmount;
+
+	private String rembursementPaymentDate;
+
+	private String paymentStatus;
+
+	private String transactionDetails;
+	
+	private String hodApproval;
+
+	private String hodAapprovalDate;
+
+	private String hodRemarks;
+
+	private String finalApproval;
+
+	private String finalApprovalDate;
+
+	private String finalRemarks;
 }

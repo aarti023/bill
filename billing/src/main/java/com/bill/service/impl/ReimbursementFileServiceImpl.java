@@ -30,8 +30,6 @@ public class ReimbursementFileServiceImpl implements ReimbursementFileService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		ReimbursementFileEntity reimburs = new ReimbursementFileEntity(fileExtension, fileName, fileExtension, reimburseId, data);
-//		ReimbursementFileEntity reimburs = new ReimbursementFileEntity(fileName, fileExtension,data,reimburseId);
 		ReimbursementFileEntity reimburs = new ReimbursementFileEntity(reimburseId, fileName, fileExtension,employeeCode , data);
 		return reimbursementFileRepo.save(reimburs);
 	}

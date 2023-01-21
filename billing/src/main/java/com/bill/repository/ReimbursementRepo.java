@@ -12,4 +12,6 @@ public interface ReimbursementRepo extends JpaRepository<ReimbursementEntity,Lon
 
 	List<ReimbursementEntity> findByEmployeeCode(String employeeCode);
 
+	ReimbursementEntity findByReimburseId(String reimburseId);
+
 }

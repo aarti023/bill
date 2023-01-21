@@ -96,4 +96,34 @@ public class ReimbursementEntity {
 	
 	@Column(name = "reimburse_id", columnDefinition = "varchar(256)")
 	private String reimburseId;
+	
+	@Column(name = "paid_amount", columnDefinition = "varchar(256)")
+	private String paidAmount;
+
+	@Column(name = "rembursement_payment_date", columnDefinition = "varchar(256)")
+	private String rembursementPaymentDate;
+
+	@Column(name = "payment_status", columnDefinition = "varchar(256)")
+	private String paymentStatus;
+
+	@Column(name = "transaction_details", columnDefinition = "varchar(256)")
+	private String transactionDetails;
+	
+	@Column(name = "hod_approval", columnDefinition = "varchar(256)")
+	private String hodApproval;
+
+	@Column(name = "hod_approval_date", columnDefinition = "varchar(256)")
+	private String hodAapprovalDate;
+
+	@Column(name = "hod_remarks", columnDefinition = "varchar(256)")
+	private String hodRemarks;
+
+	@Column(name = "final_approval", columnDefinition = "varchar(256)")
+	private String finalApproval;
+
+	@Column(name = "final_approval_date", columnDefinition = "varchar(256)")
+	private String finalApprovalDate;
+
+	@Column(name = "final_remarks", columnDefinition = "varchar(256)")
+	private String finalRemarks;
 }

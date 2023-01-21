@@ -18,9 +18,6 @@ public interface PurchaseApprovalService {
 
 	List<PurchaseApprovalEntity> getDataByEmployeeCode(String employeeCode);
 
-
-//	String getGenrateUserId(String approvalId);
-
 	PurchaseApprovalByCOSDto updatePurchasingApprovalByCOS(String approvalId,
 			PurchaseApprovalByCOSDto purchaseApprovalByCOSDto);
 
