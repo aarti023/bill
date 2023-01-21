@@ -102,5 +102,7 @@ public class UserDto {
 	private String highReportingManagerId;
 	
 	private String approvalId;
+	
+	private String isReimbursement;
 
 }

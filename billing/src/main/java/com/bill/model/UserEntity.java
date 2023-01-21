@@ -170,6 +170,9 @@ public class UserEntity{
 	
 	@Column(name = "approval_id", columnDefinition = "varchar(256)")
 	private String approvalId;
+	
+	@Column(name = "is_reimbursement", columnDefinition = "varchar(256)")
+	private String isReimbursement;
 
 
 }
