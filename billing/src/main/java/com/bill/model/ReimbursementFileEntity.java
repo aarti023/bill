@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import com.bill.enums.UserType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,15 +38,22 @@ public class ReimbursementFileEntity {
 
 	@Column(name = "file_type", columnDefinition = "varchar(256)")
 	private String fileType;
+	
+	@Column(name = "reimburse_Id", columnDefinition = "varchar(256)")
+	private String reimburseId;
 
 	@Lob
 	private byte[] data;
 
-	public ReimbursementFileEntity( String employeeCode, String fileName, String fileType, byte[] data) {
+	public ReimbursementFileEntity(String employeeCode, String fileName, String fileType, String reimburseId,
+			byte[] data) {
 		super();
 		this.employeeCode = employeeCode;
 		this.fileName = fileName;
 		this.fileType = fileType;
+		this.reimburseId = reimburseId;
 		this.data = data;
 	}
+
+	
 }

@@ -11,5 +11,7 @@ public interface ReimbursementService {
 
 	List<ReimbursementEntity> getReimbursementDataByEmployeeCode(String employeeCode);
 
+	List<ReimbursementEntity> getAllReimbursementDetails();
+
 
 }

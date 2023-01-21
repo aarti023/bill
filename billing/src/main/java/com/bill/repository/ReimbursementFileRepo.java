@@ -12,4 +12,6 @@ public interface ReimbursementFileRepo extends JpaRepository<ReimbursementFileEn
 
 	Optional<ReimbursementFileEntity> findByEmployeeCode(String employeeCode);
 
+	Optional<ReimbursementFileEntity> findByReimburseId(String reimbursementId);
+
 }

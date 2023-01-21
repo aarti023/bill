@@ -93,4 +93,7 @@ public class ReimbursementEntity {
 	
 	@Column(name = "high_reporting_manager_id", columnDefinition = "varchar(256)")
 	private String highReportingManagerId;
+	
+	@Column(name = "reimburse_id", columnDefinition = "varchar(256)")
+	private String reimburseId;
 }

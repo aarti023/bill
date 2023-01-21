@@ -50,5 +50,6 @@ public class ReimbursementDto {
 	private String reportingManagerId;
 	
 	private String highReportingManagerId;
-
+	
+	private String reimburseId;
 }

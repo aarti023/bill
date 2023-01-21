@@ -34,15 +34,36 @@ public class ReimbursementFileController {
 	
 	@PostMapping("/upload/file")
 	public String uploadFilesInDB(@RequestParam(value = "file") MultipartFile multiPartFile,
-			@RequestParam(name = "employeeCode") String employeeCode) {
+			@RequestParam(name = "employeeCode") String employeeCode, String reimburseId) {
 
-		reimbursementFileService.save(multiPartFile, employeeCode);
+		reimbursementFileService.save(multiPartFile, employeeCode, reimburseId);
 		return "File stored successfully";
 	}
 	
+//	@GetMapping("get/file/")
+//	public ResponseEntity<byte[]> getFileByEmployeeCode(@RequestParam(name = "employeeCode") String employeeCode) {
+//		Optional<ReimbursementFileEntity> fileEntity = reimbursementFileRepo.findByEmployeeCode(employeeCode);
+//		log.info("file {}", fileEntity.get().getFileType());
+//		String ft = fileEntity.get().getFileType();
+//		byte[] files = null;
+//		if(fileEntity.isPresent()) {
+//			files = fileEntity.get().getData();
+//		}
+//		if(ft.equals("image/jpeg")) {
+//			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(files); 
+//		}
+//		else if(ft.equals("image/png")) {
+//			return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(files);
+//		}
+//		else {
+//			return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(files);
+//		}
+//	}
+	
+	
 	@GetMapping("get/file/")
-	public ResponseEntity<byte[]> getFileByEmployeeCode(@RequestParam(name = "employeeCode") String employeeCode) {
-		Optional<ReimbursementFileEntity> fileEntity = reimbursementFileRepo.findByEmployeeCode(employeeCode);
+	public ResponseEntity<byte[]> getFileByReimbursementId(@RequestParam(name = "reimburseId") String reimburseId) {
+		Optional<ReimbursementFileEntity> fileEntity = reimbursementFileRepo.findByReimburseId(reimburseId);
 		log.info("file {}", fileEntity.get().getFileType());
 		String ft = fileEntity.get().getFileType();
 		byte[] files = null;

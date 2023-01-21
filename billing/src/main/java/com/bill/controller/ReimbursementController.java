@@ -70,4 +70,17 @@ public class ReimbursementController {
 		fileStorageService.save(multiPartFile, employeeCode);
 		return "File stored successfully";
 	}
+	
+	@GetMapping("/get/reimbursement/")
+	@ApiOperation("get all reimbursement")
+	public ResponseDto<List<ReimbursementEntity>> getAllReimbursement() {
+		try {
+			log.info("item {}");
+			List<ReimbursementEntity> response = reimbursementService.getAllReimbursementDetails();
+			return ResponseDto.success("All Reimbursement details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
 }
