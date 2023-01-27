@@ -17,11 +17,7 @@ public class UserUpdateDto {
 
 	private String transactionDetail;
 	
-	private String updatedBy;
-	
-	private String updatedAt;
-	
-	private String invoiceStatus;
+	private String paymentStatus;
 	
 	
 }
