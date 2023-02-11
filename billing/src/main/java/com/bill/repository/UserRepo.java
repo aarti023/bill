@@ -23,4 +23,8 @@ public interface UserRepo extends JpaRepository<UserEntity, Long> {
 	public List<UserEntity> findByEmployeeCode(String employeeCode);
 
 	public List<UserEntity> findByReportingManagerId(String reportingManagerId);
+	
+	public List<UserEntity> findByEmployeeName(String name);
+
+	public List<UserEntity> findByEmployeeNameAndEmail(String employeeName, String email);
 }

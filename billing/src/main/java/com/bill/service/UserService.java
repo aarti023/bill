@@ -31,4 +31,6 @@ public interface UserService {
 
 	InvoiceStatusUpdateDto updateInvoiceStatus(String invoiceId, InvoiceStatusUpdateDto invoiceStatusUpdateDto);
 
+	List<UserEntity> getDetailsByName(String employeeName, UserEntity userEntity);
+
 }

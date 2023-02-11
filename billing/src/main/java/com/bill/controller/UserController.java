@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bill.dto.InvoiceStatusUpdateDto;
@@ -17,6 +18,7 @@ import com.bill.dto.ResponseDto;
 import com.bill.dto.UserDto;
 import com.bill.dto.UserUpdateDto;
 import com.bill.model.UserEntity;
+import com.bill.repository.UserRepo;
 import com.bill.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +32,16 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	@GetMapping("/")
+	@ApiOperation("wellcome")
+	public String say() {
+		return "WellCome";
+	}
+	
 	@PostMapping("/save")
 	@ApiOperation("save user details")
 	public ResponseDto<UserEntity> saveDetail(@RequestBody UserDto userDto) {
@@ -111,6 +122,36 @@ public class UserController {
 		}
 	}
 
+	@GetMapping("/search")
+	public ResponseDto<List<UserEntity>> searchUser(@RequestParam(value = "employeeName") String employeeName,
+															  @RequestParam(value = "email") String email){
+		try {
+			log.info("user {}", employeeName);
+			List<UserEntity> response = userRepo.findByEmployeeNameAndEmail(employeeName, email);
+			return ResponseDto.success("user details get successfully", response);
+		} catch (Exception errorMessage) {
+			log.error("Exception occurred while getting the data is {}", errorMessage);
+			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+		}
+	}
+	
+	
+//	@GetMapping("/search")
+//	public ResponseDto<List<UserDto>> searchUsers(@RequestParam(value = "employeeName") String employeeName,
+//												  @RequestParam(value = "email") String email){
+//		try {
+//			log.info("user {}", employeeName);
+//			List<UserDto> response = userRepo.findByEmployeeNameAndEmail(employeeName, email);
+////			List<UserDto> response = userService.searchUser()
+//			return ResponseDto.success("user details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
+	
+	
+	
 //	@GetMapping("/get/name/email/{employeeCode}")
 //	@ApiOperation("get name and email by employeeCode")
 //	public ResponseDto<EmployeeCodeDto> getDetailByEmployeeCode(@PathVariable("employeeCode") String employeeCode) {

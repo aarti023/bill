@@ -155,4 +155,10 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	@Override
+	public List<UserEntity> getDetailsByName(String employeeName, UserEntity userEntity) {
+		
+		return null;
+	}
+
 }

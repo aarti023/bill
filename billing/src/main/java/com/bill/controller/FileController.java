@@ -55,7 +55,7 @@ public class FileController {
 		if(fileEntity.isPresent()) {
 			files = fileEntity.get().getData();
 		}
-		if(ft.equals("image/jpeg")) {
+		if(ft.equals("image/jpeg") || ft.equals("image/jpg")) {
 			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(files); 
 		}
 		else if(ft.equals("image/png")) {
