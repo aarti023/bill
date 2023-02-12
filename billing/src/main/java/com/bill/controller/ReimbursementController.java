@@ -30,7 +30,6 @@
 //@RestController
 //@RequestMapping("/reimbursement")
 //@Log4j2
-//@CrossOrigin(origins = "*")
 //public class ReimbursementController {
 //
 //	@Autowired

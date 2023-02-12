@@ -27,7 +27,6 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @RequestMapping("/bill")
 @Log4j2
-@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
@@ -141,7 +140,7 @@ public class UserController {
 //												  @RequestParam(value = "email") String email){
 //		try {
 //			log.info("user {}", employeeName);
-//			List<UserDto> response = userRepo.findByEmployeeNameAndEmail(employeeName, email);
+////			List<UserDto> response = userRepo.findByEmployeeNameAndEmail(employeeName, email);
 ////			List<UserDto> response = userService.searchUser()
 //			return ResponseDto.success("user details get successfully", response);
 //		} catch (Exception errorMessage) {

@@ -29,7 +29,6 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @Log4j2
 @RequestMapping("/dropdown")
-@CrossOrigin(origins = "*")
 public class DropdownController {
 
 	@Autowired
@@ -48,17 +47,17 @@ public class DropdownController {
 		}
 	}
 
-	@PostMapping(value = "/expenseType")
-	@ApiOperation("add expenses")
-	public ResponseDto<ExpensesTypeEntity> saveExpenseType(@RequestBody ExpensesDto expensesDto) {
-
-		log.info("dropdown of adding expenseType {} [" + expensesDto + "]");
-
-		ExpensesTypeEntity response = dropdownService.saveExpenseType(expensesDto);
-
-		return ResponseDto.success("expenses Add Successfully", response);
-
-	}
+//	@PostMapping(value = "/expenseType")
+//	@ApiOperation("add expenses")
+//	public ResponseDto<ExpensesTypeEntity> saveExpenseType(@RequestBody ExpensesDto expensesDto) {
+//
+//		log.info("dropdown of adding expenseType {} [" + expensesDto + "]");
+//
+//		ExpensesTypeEntity response = dropdownService.saveExpenseType(expensesDto);
+//
+//		return ResponseDto.success("expenses Add Successfully", response);
+//
+//	}
 	
 	@GetMapping("/get/items/")
 	@ApiOperation("get all items code and name")

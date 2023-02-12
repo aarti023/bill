@@ -23,7 +23,6 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @RequestMapping("/profile")
 @Log4j2
-@CrossOrigin(origins = "*")
 public class ProfileController {
 
 	@Autowired
