@@ -173,6 +173,12 @@ public class UserEntity{
 	
 	@Column(name = "is_reimbursement", columnDefinition = "varchar(256)")
 	private String isReimbursement;
+	
+	@Column(name = "comment", columnDefinition = "varchar(256)")
+	private String comment;
+	
+	@Column(name = "submit_date", columnDefinition = "varchar(256)")
+	private String submitDate;
 
 
 }

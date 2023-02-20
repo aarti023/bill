@@ -105,4 +105,7 @@ public class UserDto {
 	
 	private String isReimbursement;
 
+	private String comment;
+	
+	private String submitDate;
 }
