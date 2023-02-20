@@ -21,8 +21,6 @@ import com.bill.dropdowns.dto.ItemsNameCodeDto;
 import com.bill.dropdowns.dto.PartnerNameCodeDto;
 import com.bill.dropdowns.service.DropdownService;
 import com.bill.dto.ResponseDto;
-import com.google.gson.Gson;
-
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
@@ -131,18 +129,18 @@ public class DropdownController {
 
 	}
 	
-	@PostMapping(value = "/save/brand/subBrand")
-	@ApiOperation("save brand according to sub brands")
-	public ResponseDto<List<BrandsEntity>> saveSubBrandWithBrand(@RequestBody List<BrandsEntity> brandsEntity) {
-
-		log.info("Save details [" + brandsEntity + "]");
-
-		List<BrandsEntity> response = dropdownService.saveSubBrandWithBrand(brandsEntity);
-		Gson gson = new Gson();
-		String json = gson.toJson(response);
-   	return ResponseDto.success("save details Successfully", response);
-//		return json;
-	}
+//	@PostMapping(value = "/save/brand/subBrand")
+//	@ApiOperation("save brand according to sub brands")
+//	public ResponseDto<List<BrandsEntity>> saveSubBrandWithBrand(@RequestBody List<BrandsEntity> brandsEntity) {
+//
+//		log.info("Save details [" + brandsEntity + "]");
+//
+//		List<BrandsEntity> response = dropdownService.saveSubBrandWithBrand(brandsEntity);
+//		Gson gson = new Gson();
+//		String json = gson.toJson(response);
+//   	return ResponseDto.success("save details Successfully", response);
+////		return json;
+//	}
 	
 //	@PostMapping(value = "/saveAll")
 //	@ApiOperation("save subbrand according to brand name")
