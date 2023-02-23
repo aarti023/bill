@@ -22,6 +22,7 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @RequestMapping("/files")
 @Log4j2
+@CrossOrigin(origins = "*")
 public class FileController {
 
 	@Autowired

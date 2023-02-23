@@ -27,6 +27,7 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @Log4j2
 @RequestMapping("/dropdown")
+@CrossOrigin(origins = "*")
 public class DropdownController {
 
 	@Autowired
